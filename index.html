@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manuel Zacarias</title>
+    <meta name="description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
+    <meta name="keywords" content="desarrollador frontend, programador, React, Angular, JavaScript, TypeScript, UI/UX, portafolio">
+    <meta name="author" content="Manuel Zacarias">
+    <meta property="og:title" content="Manuel Zacarias - Desarrollador Frontend">
+    <meta property="og:description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://manuelzacarias.site">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manuel Zacarias - Desarrollador Frontend">
+    <meta name="twitter:description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
+    <title>Manuel Zacarias - Desarrollador Frontend | Portafolio Profesional</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <div class="container">
             <h1 class="logo">Manuel Zacarias</h1>
-            <nav>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu">
                 <ul>
                     <li><a href="#about">Sobre mí</a></li>
                     <li><a href="#projects">Proyectos</a></li>
@@ -31,57 +47,312 @@
 
     <section id="about" class="container">
         <h2>Sobre mí</h2>
-        <p>Soy un Programador con experiencias en Front-end y Disenador.</p>
-        <img src="perfil.jpg" alt="Foto de perfil">
+        <div class="about-content">
+            <div class="about-text">
+                <p>Soy un <strong>Desarrollador Frontend</strong> apasionado con más de 3 años de experiencia creando interfaces de usuario modernas y funcionales. Me especializo en transformar ideas complejas en experiencias digitales intuitivas y atractivas.</p>
+                <p>Mi enfoque combina habilidades técnicas sólidas con una comprensión profunda del diseño UX/UI, lo que me permite crear aplicaciones web que no solo funcionan perfectamente, sino que también ofrecen una experiencia de usuario excepcional.</p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Proyectos completados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Tecnologías dominadas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="perfil.jpg" alt="Manuel Zacarias - Desarrollador Frontend" loading="lazy">
+            </div>
+        </div>
     </section>
 
     <section id="projects" class="container">
-        <h2>Proyectos</h2>
+        <h2>Proyectos Destacados</h2>
         <div class="grid">
-            <article>
-                <img src="goflow.png" alt="Proyecto 1">
-                <h3>Gestor de Tareas</h3>
-                <p>Aplicación web para gestionar tareas de manera eficiente, construida con Angular</p>
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="goflow.png" alt="GoFlow - Gestor de Tareas con Angular" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto GoFlow">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>GoFlow - Gestor de Tareas</h3>
+                    <p>Aplicación web moderna para gestión de tareas con funcionalidades avanzadas como drag & drop, filtros inteligentes y colaboración en tiempo real.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">RxJS</span>
+                        <span class="tech-tag">Material Design</span>
+                    </div>
+                </div>
             </article>
-            <article>
-                <img src="abarrotes.png" alt="Proyecto 2">
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="abarrotes.png" alt="Tienda en Línea - E-commerce con JavaFX" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto Tienda en Línea">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
                 <h3>Tienda en Línea</h3>
-                <p>Plataforma de e-commerce con un diseño moderno y funcional, desarrollada con Java y JavaFX</p>
+                    <p>Plataforma completa de e-commerce con sistema de inventario, carrito de compras, procesamiento de pagos y panel administrativo.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JavaFX</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </div>
             </article>
-            <article>
-                <img src="consultorio.png" alt="Proyecto 3">
-                <h3>Consultorio Medico</h3>
-                <p>Aplicación para le gestion de un Consultorio y venta de medicamentos hecho con React.</p>
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="consultorio.png" alt="Consultorio Médico - Sistema de gestión con React" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto Consultorio Médico">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Consultorio Médico</h3>
+                    <p>Sistema integral para gestión de consultorios médicos con agenda de citas, historial de pacientes, inventario de medicamentos y reportes.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                    </div>
+                </div>
             </article>
         </div>
     </section>
 
     <section id="skills" class="container">
-        <h2>Habilidades</h2>
-        <ul class="skills-list">
-            <li>JavaScript (ES6+)</li>
-            <li>React y Angular</li>
-            <li>Python</li>
-            <li>Git y Metodologías Ágiles</li>
-            <li>HTML5 y CSS3</li>
-            <li>UI y UX Design</li>
-            <li>Typescript</li>
-        </ul>
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Frontend</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript (ES6+)</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-angular"></i>
+                        <span>Angular</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-sass"></i>
+                        <span>Sass/SCSS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Backend & Tools</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-palette"></i> Design & Soft Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>UI/UX Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-users"></i>
+                        <span>Metodologías Ágiles</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Comunicación</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Resolución de Problemas</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Gestión de Tiempo</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>Trabajo en Equipo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact" class="container">
         <h2>Contacto</h2>
-        <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="Tu correo" required>
-            <textarea name="message" placeholder="Tu mensaje" required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>¡Hablemos de tu próximo proyecto!</h3>
+                <p>Estoy siempre interesado en nuevos desafíos y oportunidades. Si tienes un proyecto en mente o simplemente quieres charlar sobre tecnología, no dudes en contactarme.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>zacariasmanuel501@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+52 961 119 4991</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Tuxtla Gutiérrez, Chiapas, México</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/manuelzacarias201" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/manuel-de-jes%C3%BAs-hern%C3%A1ndez-zacarias-945a2b31a/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/Manuelzacariasz" target="_blank" rel="noopener" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:zacariasmanuel501@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mldplqnn" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Enviar Mensaje</span>
+                    <span class="btn-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Enviando...
+                    </span>
+                </button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; Manuel Zacarias Portafolio. Todos los derechos reservados.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Manuel Zacarias</h3>
+                    <p>Desarrollador Frontend apasionado por crear experiencias digitales excepcionales.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#about">Sobre mí</a></li>
+                        <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#skills">Habilidades</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Sígueme</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/manuelzacarias201" target="_blank" rel="noopener" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/manuel-de-jes%C3%BAs-hern%C3%A1ndez-zacarias-945a2b31a/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/Manuelzacariasz" target="_blank" rel="noopener" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Manuel Zacarias. Todos los derechos reservados.</p>
+                <p>Hecho con <i class="fas fa-heart"></i> y mucho café</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
