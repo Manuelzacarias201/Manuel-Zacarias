@@ -93,11 +93,21 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Add touch event for submit button
+        // Add touch events for submit button to ensure it works on mobile
         const submitBtn = contactForm.querySelector('.submit-btn');
         if (submitBtn) {
+            // Ensure touch events work properly for form submission
             submitBtn.addEventListener('touchstart', function(e) {
-                // Allow default behavior for form submission
+                // Don't prevent default - allow form submission
+            });
+            
+            submitBtn.addEventListener('touchend', function(e) {
+                // Don't prevent default - allow form submission
+            });
+            
+            // Add click event as fallback
+            submitBtn.addEventListener('click', function(e) {
+                // This will trigger the form submission
             });
         }
     }
@@ -203,11 +213,16 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleMobileMenu() {
     const nav = document.querySelector('.nav-menu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
+    const overlay = document.querySelector('.menu-overlay');
     
     if (!nav || !menuBtn) return;
     
     nav.classList.toggle('active');
     menuBtn.classList.toggle('active');
+    
+    if (overlay) {
+        overlay.classList.toggle('active');
+    }
     
     // Prevent body scroll when menu is open
     if (nav.classList.contains('active')) {
@@ -225,11 +240,17 @@ function toggleMobileMenu() {
 function closeMobileMenu() {
     const nav = document.querySelector('.nav-menu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
+    const overlay = document.querySelector('.menu-overlay');
     
     if (!nav || !menuBtn) return;
     
     nav.classList.remove('active');
     menuBtn.classList.remove('active');
+    
+    if (overlay) {
+        overlay.classList.remove('active');
+    }
+    
     document.body.style.overflow = '';
     document.body.style.position = '';
     document.body.style.width = '';
@@ -238,6 +259,7 @@ function closeMobileMenu() {
 // Enhanced mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const menuCloseBtn = document.querySelector('.menu-close-btn');
     const navLinks = document.querySelectorAll('.nav-menu a');
     const nav = document.querySelector('.nav-menu');
     
@@ -251,7 +273,29 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add touch events for better mobile support
         mobileMenuBtn.addEventListener('touchstart', function(e) {
+            // Don't prevent default - allow menu toggle
+        });
+        
+        mobileMenuBtn.addEventListener('touchend', function(e) {
+            // Don't prevent default - allow menu toggle
+        });
+    }
+    
+    // Add click event to menu close button
+    if (menuCloseBtn) {
+        menuCloseBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+        
+        // Add touch events for better mobile support
+        menuCloseBtn.addEventListener('touchstart', function(e) {
+            // Don't prevent default - allow menu close
+        });
+        
+        menuCloseBtn.addEventListener('touchend', function(e) {
+            // Don't prevent default - allow menu close
         });
     }
     
@@ -278,6 +322,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Allow default touch behavior for links
         });
     });
+    
+    // Close menu when clicking on overlay
+    const overlay = document.querySelector('.menu-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMobileMenu();
+        });
+    }
     
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
@@ -385,8 +438,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Prevent zoom on double tap for buttons
-    const buttons = document.querySelectorAll('button, .button');
+    // Prevent zoom on double tap for buttons (except submit button, mobile menu button, and menu close button)
+    const buttons = document.querySelectorAll('button:not(.submit-btn):not(.mobile-menu-btn):not(.menu-close-btn), .button');
     buttons.forEach(button => {
         button.addEventListener('touchend', function(e) {
             e.preventDefault();
