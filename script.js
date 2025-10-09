@@ -12,53 +12,106 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact form functionality
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const submitBtn = this.querySelector('.submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    const formData = new FormData(this);
-    
-    // Show loading state
-    submitBtn.disabled = true;
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline';
-    
-    // Submit to Formspree
-    fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
+// Contact form functionality - Enhanced for mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        // Add form validation
+        const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.style.borderColor = '#F44336';
+                } else {
+                    this.style.borderColor = '#3C3C3C';
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.style.borderColor = '#3C3C3C';
+                }
+            });
+        });
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = '#F44336';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '#3C3C3C';
+                }
+            });
+            
+            if (!isValid) {
+                showNotification('Por favor, completa todos los campos requeridos.', 'error');
+                return;
+            }
+            
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            const formData = new FormData(this);
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reset form
+                    this.reset();
+                    showNotification('¡Mensaje enviado exitosamente! Te responderé pronto.', 'success');
+                } else {
+                    throw new Error('Error al enviar el mensaje');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.', 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = 'inline';
+                btnLoading.style.display = 'none';
+            });
+        });
+        
+        // Add touch event for submit button
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        if (submitBtn) {
+            submitBtn.addEventListener('touchstart', function(e) {
+                // Allow default behavior for form submission
+            });
         }
-    })
-    .then(response => {
-        if (response.ok) {
-            // Reset form
-            this.reset();
-            showNotification('¡Mensaje enviado exitosamente! Te responderé pronto.', 'success');
-        } else {
-            throw new Error('Error al enviar el mensaje');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        showNotification('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.', 'error');
-    })
-    .finally(() => {
-        // Reset button state
-        submitBtn.disabled = false;
-        btnText.style.display = 'inline';
-        btnLoading.style.display = 'none';
-    });
+    }
 });
 
-// Notification system
+// Notification system - Mobile optimized
 function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notif => notif.remove());
+    
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
+    
     const iconMap = {
         'success': 'check-circle',
         'error': 'exclamation-circle',
@@ -78,35 +131,50 @@ function showNotification(message, type = 'info') {
         </div>
     `;
     
-    // Add styles
+    // Mobile-responsive styles
+    const isMobile = window.innerWidth <= 768;
+    const position = isMobile ? 'center' : 'right';
+    
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: ${isMobile ? '20px' : '20px'};
+        ${position === 'center' ? 'left: 50%; transform: translateX(-50%) translateY(-100%);' : 'right: 20px; transform: translateX(100%);'}
         background: ${colorMap[type] || '#2196F3'};
         color: white;
-        padding: 15px 20px;
-        border-radius: 8px;
+        padding: ${isMobile ? '12px 16px' : '15px 20px'};
+        border-radius: ${isMobile ? '12px' : '8px'};
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        z-index: 1000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+        z-index: 10000;
+        max-width: ${isMobile ? '90vw' : '400px'};
+        font-size: ${isMobile ? '0.9rem' : '1rem'};
+        transition: all 0.3s ease;
+        word-wrap: break-word;
     `;
     
     document.body.appendChild(notification);
     
     // Animate in
     setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
+        if (isMobile) {
+            notification.style.transform = 'translateX(-50%) translateY(0)';
+        } else {
+            notification.style.transform = 'translateX(0)';
+        }
     }, 100);
     
-    // Remove after 5 seconds
+    // Remove after 4 seconds (shorter for mobile)
     setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
+        if (isMobile) {
+            notification.style.transform = 'translateX(-50%) translateY(-100%)';
+        } else {
+            notification.style.transform = 'translateX(100%)';
+        }
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
-    }, 5000);
+    }, isMobile ? 4000 : 5000);
 }
 
 // Intersection Observer for animations
@@ -131,10 +199,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Mobile menu toggle
+// Mobile menu toggle - Enhanced for mobile
 function toggleMobileMenu() {
     const nav = document.querySelector('.nav-menu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (!nav || !menuBtn) return;
     
     nav.classList.toggle('active');
     menuBtn.classList.toggle('active');
@@ -142,8 +212,12 @@ function toggleMobileMenu() {
     // Prevent body scroll when menu is open
     if (nav.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
     } else {
         document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
     }
 }
 
@@ -152,33 +226,78 @@ function closeMobileMenu() {
     const nav = document.querySelector('.nav-menu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
     
+    if (!nav || !menuBtn) return;
+    
     nav.classList.remove('active');
     menuBtn.classList.remove('active');
     document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.width = '';
 }
 
-// Add click event to mobile menu button
+// Enhanced mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelectorAll('.nav-menu a');
+    const nav = document.querySelector('.nav-menu');
     
+    // Add click event to mobile menu button
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+        
+        // Add touch events for better mobile support
+        mobileMenuBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        });
     }
     
     // Close menu when clicking on nav links
     navLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            closeMobileMenu();
+            
+            // Smooth scroll to target
+            if (target) {
+                setTimeout(() => {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            }
+        });
+        
+        // Add touch events for nav links
+        link.addEventListener('touchstart', function(e) {
+            // Allow default touch behavior for links
+        });
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
-        const nav = document.querySelector('.nav-menu');
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        
-        if (nav.classList.contains('active') && 
+        if (nav && nav.classList.contains('active') && 
             !nav.contains(e.target) && 
-            !menuBtn.contains(e.target)) {
+            !mobileMenuBtn.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav && nav.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && nav && nav.classList.contains('active')) {
             closeMobileMenu();
         }
     });

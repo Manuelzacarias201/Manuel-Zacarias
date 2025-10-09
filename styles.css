@@ -108,8 +108,16 @@ header {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
 }
 
 .mobile-menu-btn span {
@@ -117,8 +125,9 @@ header {
     height: 3px;
     background-color: #E0E0E0;
     margin: 3px 0;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     border-radius: 2px;
+    display: block;
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
@@ -127,10 +136,27 @@ header {
 
 .mobile-menu-btn.active span:nth-child(2) {
     opacity: 0;
+    transform: scale(0);
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile menu button touch feedback */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .mobile-menu-btn:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    .mobile-menu-btn:active span {
+        background-color: #FF0000;
+    }
 }
 
 .nav-menu ul {
@@ -904,13 +930,50 @@ header {
 }
 
 .submit-btn:disabled {
-    background-color: #666;
+    background: linear-gradient(45deg, #666, #888);
     cursor: not-allowed;
     transform: none;
+    animation: none;
+}
+
+.submit-btn:disabled:hover {
+    transform: none;
+    box-shadow: 0 8px 25px rgba(102, 102, 102, 0.3);
 }
 
 .btn-loading {
     display: none;
+}
+
+/* Mobile-specific button improvements */
+@media (max-width: 768px) {
+    .submit-btn {
+        min-height: 48px;
+        font-size: 1rem;
+        font-weight: 600;
+        -webkit-tap-highlight-color: rgba(255, 0, 0, 0.2);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    .submit-btn:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    .submit-btn:disabled:active {
+        transform: none;
+    }
+    
+    .btn-loading {
+        display: none;
+        font-size: 0.9rem;
+    }
+    
+    .btn-text {
+        display: inline;
+    }
 }
 
 /* Footer */
@@ -1114,7 +1177,22 @@ footer {
     
     .nav-menu ul li a {
         font-size: 1.5rem;
-        padding: 15px 0;
+        padding: 20px 0;
+        display: block;
+        -webkit-tap-highlight-color: rgba(255, 0, 0, 0.2);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-menu ul li a:active {
+        background-color: rgba(255, 0, 0, 0.1);
+        transform: scale(0.98);
+        transition: all 0.1s ease;
     }
     
     /* Hero - Mobile Optimized */
