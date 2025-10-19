@@ -396,6 +396,16 @@ window.addEventListener('scroll', function() {
 });
 
 // Touch interactions for mobile
+// Atajos de teclado para accesibilidad de UserWay
+document.addEventListener('keydown', function(e) {
+    // Alt + A: Abrir menú de accesibilidad de UserWay
+    if (e.altKey && e.key === 'a') {
+        if (window.UserWay && window.UserWay.widgetInstance) {
+            window.UserWay.widgetInstance.toggle();
+        }
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Add touch feedback to interactive elements
     const interactiveElements = document.querySelectorAll('.button, .project-card, .skill-item, .contact-method, .social-links a');

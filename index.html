@@ -15,11 +15,54 @@
     <meta name="twitter:description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
     <title>Manuel Zacarias - Desarrollador Frontend | Portafolio Profesional</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accessibility.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Script principal -->
     <script src="script.js" defer></script>
+    <script src="accessibility.js" defer></script>
 </head>
 <body>
+    <!-- Botón de accesibilidad -->
+    <button class="accessibility-button" aria-label="Opciones de accesibilidad">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <!-- Panel de accesibilidad avanzado -->
+    <div class="accessibility-panel" aria-label="Panel de accesibilidad" role="dialog" aria-modal="false" aria-hidden="true">
+        <div class="accessibility-panel-header">
+            <h3><i class="fas fa-universal-access"></i> Perfiles de accesibilidad <span class="accessibility-arrow">▼</span></h3>
+            <button class="accessibility-close" aria-label="Cerrar panel de accesibilidad">✕</button>
+        </div>
+        <div class="accessibility-profiles">
+            <button class="profile-btn" data-profile="motora"><i class="fas fa-wheelchair"></i> Discapacidad Motora</button>
+            <button class="profile-btn" data-profile="ceguera"><i class="fas fa-wave-square"></i> Ceguera</button>
+            <button class="profile-btn" data-profile="daltonismo"><i class="fas fa-tint"></i> Daltonismo</button>
+            <button class="profile-btn" data-profile="dislexia"><span class="profile-df">Df</span> Dislexia</button>
+            <button class="profile-btn" data-profile="vision-baja"><i class="fas fa-eye"></i> Visión baja</button>
+            <button class="profile-btn" data-profile="cognitivo"><i class="fas fa-puzzle-piece"></i> Cognitivo y aprendizaje</button>
+            <button class="profile-btn" data-profile="epilepsia"><i class="fas fa-brain"></i> Convulsiones y epilépticos</button>
+            <button class="profile-btn" data-profile="tdah"><i class="fas fa-bullseye"></i> TDAH</button>
+        </div>
+        <hr>
+        <div class="accessibility-functions">
+            <button class="accessibility-option" data-action="read"><i class="fas fa-wave-square"></i> Leer página</button>
+            <button class="accessibility-option" data-action="contrast"><i class="fas fa-adjust"></i> Contraste +</button>
+            <button class="accessibility-option" data-action="smart-contrast"><i class="fas fa-adjust"></i> Contraste inteligente</button>
+            <button class="accessibility-option" data-action="highlight-links"><i class="fas fa-link"></i> Resaltar enlaces</button>
+            <button class="accessibility-option" data-action="fontSize" data-change="increase"><i class="fas fa-text-height"></i> Agrandar texto</button>
+            <button class="accessibility-option" data-action="lineSpacing"><i class="fas fa-arrows-alt-h"></i> Espaciado de texto</button>
+            <button class="accessibility-option" data-action="stop-animations"><i class="fas fa-pause"></i> Detener animaciones</button>
+            <button class="accessibility-option" data-action="hide-images"><i class="fas fa-image"></i> Ocultar imágenes</button>
+            <button class="accessibility-option" data-action="dyslexic"><span class="profile-df">Df</span> Apto para dislexia</button>
+            <button class="accessibility-option" data-action="cursor"><i class="fas fa-mouse-pointer"></i> Cursor</button>
+            <button class="accessibility-option" data-action="info"><i class="fas fa-info-circle"></i> Información</button>
+            <button class="accessibility-option" data-action="structure"><i class="fas fa-layer-group"></i> Estructura de la página</button>
+            <button class="accessibility-option" data-action="lineHeight"><i class="fas fa-arrows-alt-v"></i> Altura de la línea</button>
+            <button class="accessibility-option" data-action="align-text"><i class="fas fa-align-left"></i> Texto alineado</button>
+            <button class="accessibility-option" data-action="saturation"><i class="fas fa-tint"></i> Saturación</button>
+            <button class="accessibility-option" data-action="reset"><i class="fas fa-undo"></i> Restablecer</button>
+        </div>
+    </div>
     <header>
         <div class="container">
             <h1 class="logo">Manuel Zacarias</h1>
@@ -49,7 +92,8 @@
     <div class="menu-overlay"></div>
 
     <section id="hero">
-        <h2>¡Hola! Soy un programador apasionado</h2>
+        <h2>¡Hola! Soy Manuel Zacarias</h2>
+        <h2>Mi pasión es desarrollar software de calidad.</h2>
         <p>Construyo soluciones creativas y eficientes utilizando tecnología moderna.</p>
         <a href="#projects" class="button">Ver mis proyectos</a>
     </section>
@@ -159,6 +203,59 @@
                     </div>
                 </div>
             </article>
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="smart tank.png" alt="Smart Tank - Sistema de Monitoreo Inteligente de Agua" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto Smart Tank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Smart Tank</h3>
+                    <p>Sistema automatizado basado en Raspberry Pi para monitoreo en tiempo real de la calidad del agua, incluyendo medición de pH, turbidez, conductividad eléctrica y control automático de purificación.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Sensores</span>
+                        <span class="tech-tag">Automatización</span>
+                    </div>
+                </div>
+            </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="smart garden.jpg" alt="SmartGarden Logo" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Ver demo del proyecto SmartGarden">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="smartgarden-title">Smart Garden</h3>
+                        <p>Solución tecnológica para la gestión automatizada de huertos urbanos, con monitoreo en tiempo real, alertas basadas en umbrales, integración IoT y sistema de eventos asíncronos con RabbitMQ.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag tech-tag-red">Go</span>
+                            <span class="tech-tag tech-tag-red">Gin</span>
+                            <span class="tech-tag tech-tag-red">MySQL</span>
+                            <span class="tech-tag tech-tag-red">RabbitMQ</span>
+                            <span class="tech-tag tech-tag-red">IoT</span>
+                        </div>
+                    </div>
+                </article>
         </div>
     </section>
 
@@ -223,6 +320,42 @@
                     </div>
                 </div>
             </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-desktop"></i> Sistemas Operativos</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-linux"></i>
+                        <span>Linux</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-windows"></i>
+                        <span>Windows</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-apple"></i>
+                        <span>macOS</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="kali-logo" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 1c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm-.01 2.65c-.79.02-1.53.38-2.05.99L6.5 10.88c-.19.23-.33.5-.4.79l-1.36 5.53c-.06.25-.04.52.06.76l1.57 3.67c.12.28.33.5.6.63l3.79 1.8c.23.11.49.15.74.11l5.7-.85c.29-.04.56-.18.77-.39l3.11-3.11c.2-.2.34-.47.38-.76l.74-4.95c.04-.25 0-.52-.11-.75l-1.86-3.85c-.13-.27-.35-.48-.63-.6l-3.86-1.69c-.12-.06-.26-.09-.39-.1l-3.3-.11h-.06zm.38 1.36l3.3.11 3.86 1.69.11.24-2.27.35-1.69.65-1.86.08-1.55-.6.1-2.52zm-1.13.13l-.11 2.58-2.38 1.77-2.08.08L9.95 8.3l1.29-.16zm-3.37 4.78l5.42 2.52-.32 2.44-3.55 2.36-1.27.32-1.86-4.35 1.58-3.29zm6.75 2.6l5.47-2.52 1.8 3.71-.11.97-4.27.89-2.41-1.29-.48-1.76zm-3.54 3.95l2.6 2.36-.08 1.29-2.44.35-.08-3.95z"/>
+                        </svg>
+                        <span>Kali Linux</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-ubuntu"></i>
+                        <span>Ubuntu</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>Raspberry Pi OS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-chrome"></i>
+                        <span>Chrome OS</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="skill-category">
                 <h3><i class="fas fa-palette"></i> Design & Soft Skills</h3>
                 <div class="skills-grid">
@@ -358,10 +491,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Manuel Zacarias. Todos los derechos reservados.</p>
-                <p>Hecho con <i class="fas fa-heart"></i> y mucho café</p>
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 Manuel Zacarias. Todos los derechos reservados.</p>
+                    <p>Hecho con <i class="fas fa-heart"></i> y mucho café</p>
+                </div>
             </div>
         </div>
     </footer>
+    
 </body>
 </html>

@@ -1,0 +1,265 @@
+/* Botón de accesibilidad flotante */
+.accessibility-button {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1a73e8;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
+}
+
+.accessibility-button:hover {
+    transform: scale(1.1);
+    background: #1557b0;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.accessibility-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.5), 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.accessibility-button i {
+    transition: transform 0.3s ease;
+}
+
+.accessibility-button:hover i {
+    transform: rotate(360deg);
+}
+
+/* Estilos para los estados activos */
+.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.high-contrast * {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.increased-spacing {
+    line-height: 2 !important;
+    letter-spacing: 0.12em !important;
+}
+
+.dyslexic-font {
+    font-family: OpenDyslexic, Arial, sans-serif !important;
+}
+
+/* Panel de accesibilidad flotante */
+.accessibility-panel {
+    position: fixed;
+    left: 90px;
+    bottom: 30px;
+    background: #f4f5f7;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 22px 24px;
+    width: 340px;
+    display: none;
+    color: #222;
+    z-index: 99998 !important;
+    pointer-events: auto !important;
+}
+.accessibility-panel.active {
+    display: block;
+}
+.accessibility-panel h3 {
+    margin: 0 0 18px 0;
+    font-size: 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.accessibility-arrow {
+    font-size: 16px;
+    margin-left: 8px;
+}
+.accessibility-profiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.profile-btn {
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-size: 16px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background 0.2s, color 0.2s;
+}
+.profile-btn:hover {
+    background: #e8f0fe;
+    color: #1a73e8;
+}
+.profile-df {
+    background: #eee;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+.accessibility-functions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+    /* Close button */
+    .accessibility-close {
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #333;
+    }
+    .accessibility-panel-header {
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+.accessibility-option i, .profile-btn i {
+    font-size: 20px;
+    width: 28px;
+    text-align: center;
+}
+
+/* Contraste inteligente */
+.smart-contrast, .smart-contrast * {
+    background: #222 !important;
+    color: #ffe600 !important;
+    border-color: #ffe600 !important;
+}
+/* Resaltar enlaces */
+.highlight-links a {
+    background: #ffe600 !important;
+    color: #222 !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+/* Detener animaciones */
+.stop-animations *, .stop-animations *:before, .stop-animations *:after {
+    animation: none !important;
+    transition: none !important;
+}
+/* Ocultar imágenes */
+.hide-images img, .hide-images picture, .hide-images svg, .hide-images video {
+    display: none !important;
+}
+/* Cursor grande */
+.big-cursor {
+    cursor: url('https://cdn.jsdelivr.net/gh/Manuelzacarias201/cursors/big-cursor.png'), auto !important;
+}
+/* Mostrar estructura de la página */
+.show-structure * {
+    outline: 2px dashed #1a73e8 !important;
+}
+/* Altura de línea */
+.line-height {
+    line-height: 2.2 !important;
+}
+/* Texto alineado */
+.align-text {
+    text-align: left !important;
+}
+/* Saturación baja */
+.low-saturation {
+    filter: grayscale(0.7) brightness(1.1) !important;
+}
+/* Información (ejemplo: tooltip en el body) */
+.info-tooltip {
+    position: fixed;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    z-index: 2000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .accessibility-panel {
+        left: 50%;
+        bottom: 8px;
+        transform: translateX(-50%);
+        width: 96vw;
+        max-width: 720px;
+        padding: 14px;
+        border-radius: 12px 12px 8px 8px;
+    }
+    .accessibility-functions {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .accessibility-profiles {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .accessibility-option, .profile-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+    .accessibility-panel[aria-modal="true"] {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.4);
+    }
+    .accessibility-panel[aria-modal="true"] .accessibility-panel-inner {
+        width: 94vw;
+        max-height: 90vh;
+        overflow: auto;
+    }
+}
+
+/* Close button */
+.accessibility-close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+.accessibility-panel-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
