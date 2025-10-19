@@ -28,6 +28,8 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    env:
+      SITE_DIR: './Manuel-Zacarias'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -41,8 +43,11 @@ jobs:
       - name: Check file existence
         id: check_files
         run: |
-          if [ ! -f "index.html" ]; then
-            echo "Error: index.html not found"
+          echo "Debug: current directory: $(pwd)"
+          echo "Debug: listing site dir '${SITE_DIR}'"
+          ls -la "${SITE_DIR}"
+          if [ ! -f "${SITE_DIR}/index.html" ]; then
+            echo "Error: ${SITE_DIR}/index.html not found"
             exit 1
           fi
 
@@ -57,7 +62,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '${{ env.SITE_DIR }}'
 
       - name: Deploy to GitHub Pages
         id: deployment
