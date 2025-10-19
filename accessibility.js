@@ -3,16 +3,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const panel = document.querySelector('.accessibility-panel');
     const options = document.querySelectorAll('.accessibility-option');
     const profiles = document.querySelectorAll('.profile-btn');
-
-    if (!accessibilityButton || !panel) return; // nothing to do if elements missing
+    // Debug: registrar elementos encontrados
+    console.log('[accessibility] DOM loaded. button=', accessibilityButton, 'panel=', panel);
+    if (!accessibilityButton || !panel) {
+        console.warn('[accessibility] Elementos faltantes: no se encontró botón o panel. Abortar inicialización.');
+        return; // nothing to do if elements missing
+    }
     let fontSize = 100;
 
     // Mostrar/ocultar panel (función reutilizable para click/pointer)
+    // Usamos una pequeña ventana de bloqueo para evitar que el listener global lo cierre inmediatamente
+    let suppressCloseUntil = 0;
+    // Evitar doble-toggle por múltiples eventos (click + pointerdown + touchstart)
+    let lastToggleAt = 0;
     function togglePanel(e) {
-        if (e && e.stopPropagation) e.stopPropagation();
+        if (e && e.stopPropagation) {
+            e.stopPropagation();
+            // evitar que otros handlers globales procesen este evento
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        }
+        // Debounce rápido para prevenir doble-toggle (destello)
+        const now = Date.now();
+        if (now - lastToggleAt < 350) {
+            console.log('[accessibility] togglePanel ignored due to debounce');
+            return;
+        }
+        lastToggleAt = now;
+        console.log('[accessibility] togglePanel triggered by', e && e.type, 'target=', e && e.target);
         const isActive = panel.classList.toggle('active');
         panel.setAttribute('aria-hidden', String(!isActive));
         panel.setAttribute('aria-modal', isActive ? 'true' : 'false');
+        // set suppression window so global pointerdown doesn't immediately close it
+        suppressCloseUntil = Date.now() + 300; // 300ms
         // lock scroll when active (mobile modal)
         if (isActive) {
             document.documentElement.style.overflow = 'hidden';
@@ -28,15 +50,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Usar click como primaria y touchstart como fallback en móviles. Evitamos pointerdown para prevenir doble disparo.
     accessibilityButton.addEventListener('click', togglePanel);
-    accessibilityButton.addEventListener('pointerdown', togglePanel);
+    // Agregar touchstart para compatibilidad táctil / móviles antiguos (no preventDefault)
+    accessibilityButton.addEventListener('touchstart', function(e){
+        togglePanel(e);
+    }, {passive: true});
     // prevent clicks inside panel from bubbling to document
     panel.addEventListener('click', (e) => {
         e.stopPropagation();
     });
 
-    // Cerrar panel al hacer clic fuera (pointerdown to be touch-friendly)
+    // Cerrar panel al hacer clic fuera (pointerdown para compatibilidad táctil)
     document.addEventListener('pointerdown', (e) => {
+        // Debug: registrar pointerdown global
+        console.log('[accessibility] document.pointerdown target=', e.target, 'time=', Date.now());
+        // Si estamos dentro de la ventana de supresión, ignorar (evita el 'destello')
+        if (Date.now() < suppressCloseUntil) {
+            console.log('[accessibility] pointerdown ignorado por suppressCloseUntil');
+            return;
+        }
         if (!e.target.closest('.accessibility-button') && !e.target.closest('.accessibility-panel')) {
             panel.classList.remove('active');
             panel.setAttribute('aria-hidden', 'true');
@@ -46,6 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.classList.remove('accessibility-open');
         }
     });
+
+    // También escuchar touchend como fallback en algunos navegadores móviles
+    document.addEventListener('touchend', (e) => {
+        if (Date.now() < suppressCloseUntil) return;
+        if (!e.target.closest('.accessibility-button') && !e.target.closest('.accessibility-panel')) {
+            panel.classList.remove('active');
+            panel.setAttribute('aria-hidden', 'true');
+            panel.setAttribute('aria-modal', 'false');
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+            document.documentElement.classList.remove('accessibility-open');
+        }
+    }, {passive: true});
 
     // Cerrar con tecla Escape
     document.addEventListener('keydown', (e) => {
@@ -139,6 +185,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
             }
         });
+        // Compatibilidad táctil: activar en touchend (evitar doble ejecución si click ya se dispara)
+        option.addEventListener('touchend', (e) => {
+            // si el click ya ocurrió por el touch, esto puede duplicar; usar small debounce
+            e.stopPropagation();
+            e.preventDefault && e.preventDefault();
+            console.log('[accessibility] touchend on option', option.dataset.action);
+            option.click();
+        }, {passive: false});
     });
 
     // Perfiles de accesibilidad (solo ejemplo visual)
@@ -146,7 +200,24 @@ document.addEventListener('DOMContentLoaded', function() {
         profile.addEventListener('click', () => {
             alert('Perfil seleccionado: ' + profile.textContent.trim());
         });
+        profile.addEventListener('touchend', (e) => {
+            e.stopPropagation();
+            e.preventDefault && e.preventDefault();
+            console.log('[accessibility] touchend on profile', profile.dataset.profile);
+            profile.click();
+        }, {passive: false});
     });
+
+    // Evitar que toques dentro del panel cierren la ventana (captura adicional para móviles)
+    panel.addEventListener('touchstart', (e) => {
+        e.stopPropagation();
+    }, {passive: true});
+
+    // Listener en captura para depuración avanzada: quién recibe el primer touchstart
+    document.addEventListener('touchstart', (e) => {
+        // esto sólo registra para diagnóstico si todavía hay interferencias
+        console.log('[accessibility][capture] document touchstart target=', e.target);
+    }, {passive: true, capture: true});
 
     // Botón cerrar dentro del panel
     const closeBtn = document.querySelector('.accessibility-close');

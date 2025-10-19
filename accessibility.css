@@ -22,6 +22,12 @@
     touch-action: manipulation;
 }
 
+/* Forzar visibilidad e interacción por encima de overlays globales */
+.accessibility-button, .accessibility-panel {
+    z-index: 2147483647 !important; /* máximo valor z-index para evitar bloqueos */
+    pointer-events: auto !important;
+}
+
 .accessibility-button:hover {
     transform: scale(1.1);
     background: #1557b0;
