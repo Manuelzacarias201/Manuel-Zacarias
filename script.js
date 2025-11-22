@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Smooth scrolling for navigation links - Mejorado para móvil
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -24,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         }, { passive: false });
+=======
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+>>>>>>> origin/main
     });
 });
 
@@ -108,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
+<<<<<<< HEAD
         // Mejorar submit button para móvil
         const submitBtn = contactForm.querySelector('.submit-btn');
         if (submitBtn) {
@@ -119,6 +134,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     contactForm.requestSubmit();
                 }
             }, { passive: true });
+=======
+        // Add touch events for submit button to ensure it works on mobile
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        if (submitBtn) {
+            // Ensure touch events work properly for form submission
+            submitBtn.addEventListener('touchstart', function(e) {
+                // Don't prevent default - allow form submission
+            });
+            
+            submitBtn.addEventListener('touchend', function(e) {
+                // Don't prevent default - allow form submission
+            });
+            
+            // Add click event as fallback
+            submitBtn.addEventListener('click', function(e) {
+                // This will trigger the form submission
+            });
+>>>>>>> origin/main
         }
     }
 });
@@ -220,18 +253,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Mobile menu toggle - Enhanced for mobile
+<<<<<<< HEAD
 function toggleMobileMenu(e) {
     if (e) {
         e.preventDefault();
         e.stopPropagation();
     }
     
+=======
+function toggleMobileMenu() {
+>>>>>>> origin/main
     const nav = document.querySelector('.nav-menu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const overlay = document.querySelector('.menu-overlay');
     
     if (!nav || !menuBtn) return;
     
+<<<<<<< HEAD
     const isActive = nav.classList.contains('active');
     
     if (isActive) {
@@ -248,6 +286,24 @@ function toggleMobileMenu(e) {
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
+=======
+    nav.classList.toggle('active');
+    menuBtn.classList.toggle('active');
+    
+    if (overlay) {
+        overlay.classList.toggle('active');
+    }
+    
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+    } else {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+>>>>>>> origin/main
     }
 }
 
@@ -280,6 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click event to mobile menu button
     if (mobileMenuBtn) {
+<<<<<<< HEAD
         // Click event
         mobileMenuBtn.addEventListener('click', function(e) {
             e.preventDefault();
@@ -299,6 +356,22 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopImmediatePropagation();
             toggleMobileMenu(e);
         }, { passive: false });
+=======
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+        
+        // Add touch events for better mobile support
+        mobileMenuBtn.addEventListener('touchstart', function(e) {
+            // Don't prevent default - allow menu toggle
+        });
+        
+        mobileMenuBtn.addEventListener('touchend', function(e) {
+            // Don't prevent default - allow menu toggle
+        });
+>>>>>>> origin/main
     }
     
     // Add click event to menu close button
@@ -306,6 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
         menuCloseBtn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+<<<<<<< HEAD
             e.stopImmediatePropagation();
             closeMobileMenu();
         }, true);
@@ -321,13 +395,29 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopImmediatePropagation();
             closeMobileMenu();
         }, { passive: false });
+=======
+            closeMobileMenu();
+        });
+        
+        // Add touch events for better mobile support
+        menuCloseBtn.addEventListener('touchstart', function(e) {
+            // Don't prevent default - allow menu close
+        });
+        
+        menuCloseBtn.addEventListener('touchend', function(e) {
+            // Don't prevent default - allow menu close
+        });
+>>>>>>> origin/main
     }
     
     // Close menu when clicking on nav links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+<<<<<<< HEAD
             e.stopPropagation();
+=======
+>>>>>>> origin/main
             const target = document.querySelector(this.getAttribute('href'));
             closeMobileMenu();
             
@@ -342,6 +432,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
+<<<<<<< HEAD
         // Touch events para móvil
         link.addEventListener('touchend', function(e) {
             e.preventDefault();
@@ -359,6 +450,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 300);
             }
         }, { passive: false });
+=======
+        // Add touch events for nav links
+        link.addEventListener('touchstart', function(e) {
+            // Allow default touch behavior for links
+        });
+>>>>>>> origin/main
     });
     
     // Close menu when clicking on overlay
@@ -366,6 +463,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (overlay) {
         overlay.addEventListener('click', function(e) {
             e.preventDefault();
+<<<<<<< HEAD
             e.stopPropagation();
             closeMobileMenu();
         });
@@ -385,6 +483,17 @@ document.addEventListener('DOMContentLoaded', function() {
             !mobileMenuBtn.contains(e.target) &&
             !e.target.closest('.accessibility-button') &&
             !e.target.closest('.accessibility-panel')) {
+=======
+            closeMobileMenu();
+        });
+    }
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (nav && nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !mobileMenuBtn.contains(e.target)) {
+>>>>>>> origin/main
             closeMobileMenu();
         }
     });
@@ -404,6 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+<<<<<<< HEAD
 // Fade-in animation for hero content (más profesional que typing effect)
 document.addEventListener('DOMContentLoaded', function() {
     const heroContent = document.querySelector('.hero-content');
@@ -416,6 +526,30 @@ document.addEventListener('DOMContentLoaded', function() {
             heroContent.style.opacity = '1';
             heroContent.style.transform = 'translateY(0)';
         }, 100);
+=======
+// Typing effect for hero section
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Initialize typing effect when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const heroTitle = document.querySelector('#hero h2');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        typeWriter(heroTitle, originalText, 50);
+>>>>>>> origin/main
     }
 });
 
@@ -445,12 +579,18 @@ document.addEventListener('keydown', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+<<<<<<< HEAD
     // Add touch feedback to interactive elements (excluyendo botones críticos)
     const interactiveElements = document.querySelectorAll('.button:not(.mobile-menu-btn):not(.accessibility-button):not(.menu-close-btn), .project-card, .skill-item, .contact-method, .social-links a');
+=======
+    // Add touch feedback to interactive elements
+    const interactiveElements = document.querySelectorAll('.button, .project-card, .skill-item, .contact-method, .social-links a');
+>>>>>>> origin/main
     
     interactiveElements.forEach(element => {
         element.addEventListener('touchstart', function() {
             this.style.transform = 'scale(0.95)';
+<<<<<<< HEAD
         }, { passive: true });
         
         element.addEventListener('touchend', function() {
@@ -459,10 +599,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Improve touch scrolling (pero no interferir con botones críticos)
+=======
+        });
+        
+        element.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Improve touch scrolling
+>>>>>>> origin/main
     let touchStartY = 0;
     let touchEndY = 0;
     
     document.addEventListener('touchstart', function(e) {
+<<<<<<< HEAD
         // No interferir con botones críticos
         if (e.target.closest('.mobile-menu-btn') || 
             e.target.closest('.accessibility-button') || 
@@ -482,6 +633,15 @@ document.addEventListener('DOMContentLoaded', function() {
         touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
     }, { passive: true });
+=======
+        touchStartY = e.changedTouches[0].screenY;
+    });
+    
+    document.addEventListener('touchend', function(e) {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    });
+>>>>>>> origin/main
     
     function handleSwipe() {
         const swipeThreshold = 50;
@@ -498,6 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+<<<<<<< HEAD
     // Mejorar interacción táctil para todos los botones y enlaces
     // Excluir botones críticos que ya tienen sus propios handlers
     const allButtons = document.querySelectorAll('button:not(.mobile-menu-btn):not(.menu-close-btn):not(.accessibility-button):not(.accessibility-close):not(.accessibility-option), .button:not(.mobile-menu-btn):not(.menu-close-btn):not(.accessibility-button), .project-link, .social-links a');
@@ -516,5 +677,13 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('touchcancel', function(e) {
             this.style.opacity = '1';
         }, { passive: true });
+=======
+    // Prevent zoom on double tap for buttons (except submit button, mobile menu button, and menu close button)
+    const buttons = document.querySelectorAll('button:not(.submit-btn):not(.mobile-menu-btn):not(.menu-close-btn), .button');
+    buttons.forEach(button => {
+        button.addEventListener('touchend', function(e) {
+            e.preventDefault();
+        });
+>>>>>>> origin/main
     });
 });

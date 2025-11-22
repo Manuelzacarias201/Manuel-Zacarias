@@ -37,6 +37,7 @@
         margin-left: 0;
     }
 }
+<<<<<<< HEAD
 /* ============================================
    PALETA DE COLORES PROFESIONAL
    ============================================ */
@@ -73,18 +74,28 @@
     --shadow-primary: 0 4px 14px rgba(59, 130, 246, 0.25);
 }
 
+=======
+>>>>>>> origin/main
 /* Estilos generales */
 * {
     box-sizing: border-box;
 }
     /* Tech-tag especial para SmartGarden */
     .tech-tag-red {
+<<<<<<< HEAD
         background: var(--color-primary);
+=======
+        background: #ff0000;
+>>>>>>> origin/main
         color: #fff;
     }
 
     .smartgarden-title {
+<<<<<<< HEAD
         color: var(--color-primary);
+=======
+        color: #ff0000;
+>>>>>>> origin/main
     }
 
 /* Logo de Kali Linux */
@@ -182,7 +193,14 @@ textarea:focus {
 }
 
 .skip-to-main:focus {
+<<<<<<< HEAD
 /* Asegurar que el botón y el panel estén por encima - se maneja en accessibility.css */
+=======
+/* Asegurar que el botón y el panel estén por encima */
+.accessibility-button {
+    z-index: 11000;
+}
+>>>>>>> origin/main
 
 /* Cuando el panel esté activo, permitir interacción con él por encima del overlay */
 .menu-overlay {
@@ -237,9 +255,15 @@ body {
     animation: fadeInUp 0.6s ease-out;
 }
 
+<<<<<<< HEAD
 /* Touch-friendly styles - Mejorado para móvil */
 .button, .project-card, .skill-item, .contact-method, .social-links a, .submit-btn, .project-link, button {
     -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
+=======
+/* Touch-friendly styles */
+.button, .project-card, .skill-item, .contact-method, .social-links a, .submit-btn {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0.2);
+>>>>>>> origin/main
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -247,6 +271,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+<<<<<<< HEAD
     touch-action: manipulation; /* Mejora la respuesta táctil */
     -webkit-tap-highlight-color: transparent; /* Elimina el highlight azul en móvil */
 }
@@ -258,6 +283,8 @@ body {
         min-width: 44px;
         padding: 12px 20px; /* Padding adecuado para touch */
     }
+=======
+>>>>>>> origin/main
 }
 
 /* Allow text selection in form inputs */
@@ -292,18 +319,28 @@ input, textarea {
 header {
     background-color: rgba(15, 23, 42, 0.95);
     padding: 15px 0;
+<<<<<<< HEAD
     border-bottom: 3px solid var(--color-primary);
+=======
+    border-bottom: 3px solid #FF0000;
+>>>>>>> origin/main
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
     transition: all 0.3s ease;
+<<<<<<< HEAD
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
 header .container {
+=======
+}
+
+.container {
+>>>>>>> origin/main
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -324,7 +361,11 @@ header .container {
     border: none;
     cursor: pointer;
     padding: 8px;
+<<<<<<< HEAD
     z-index: 1001 !important;
+=======
+    z-index: 1001;
+>>>>>>> origin/main
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -333,14 +374,21 @@ header .container {
     min-height: 44px;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
     position: relative;
     pointer-events: auto !important;
+=======
+>>>>>>> origin/main
 }
 
 .mobile-menu-btn span {
     width: 25px;
     height: 3px;
+<<<<<<< HEAD
     background-color: var(--text-secondary);
+=======
+    background-color: #E0E0E0;
+>>>>>>> origin/main
     margin: 3px 0;
     transition: all 0.3s ease;
     border-radius: 2px;
@@ -381,6 +429,7 @@ header .container {
     }
     
     .mobile-menu-btn:active span {
+<<<<<<< HEAD
         background-color: var(--color-primary);
     }
     
@@ -430,6 +479,58 @@ header .container {
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
+=======
+        background-color: #FF0000;
+    }
+    
+    .mobile-menu-btn:focus {
+        outline: 2px solid rgba(255, 0, 0, 0.5);
+        outline-offset: 2px;
+    }
+}
+
+/* Menu Header */
+.menu-header {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.1), transparent);
+}
+
+.menu-header h3 {
+    color: #FF0000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.menu-close-btn {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #FF0000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-close-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+    transform: rotate(90deg);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+>>>>>>> origin/main
 .nav-menu ul {
     list-style: none;
     padding: 0;
@@ -440,7 +541,11 @@ header .container {
 
 .nav-menu ul li a {
     text-decoration: none;
+<<<<<<< HEAD
     color: var(--text-secondary);
+=======
+    color: #E0E0E0;
+>>>>>>> origin/main
     font-weight: 500;
     transition: color 0.3s ease;
     padding: 5px 0;
@@ -448,6 +553,7 @@ header .container {
     display: flex;
     align-items: center;
     gap: 10px;
+<<<<<<< HEAD
 }
 
 .nav-menu ul li a i {
@@ -464,6 +570,24 @@ header .container {
     color: var(--color-primary);
 }
 
+=======
+}
+
+.nav-menu ul li a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-menu ul li a span {
+    flex: 1;
+}
+
+.nav-menu ul li a:hover {
+    color: #FF0000;
+}
+
+>>>>>>> origin/main
 .nav-menu ul li a::after {
     content: '';
     position: absolute;
@@ -471,7 +595,11 @@ header .container {
     height: 2px;
     bottom: 0;
     left: 0;
+<<<<<<< HEAD
     background-color: var(--color-primary);
+=======
+    background-color: #FF0000;
+>>>>>>> origin/main
     transition: width 0.3s ease;
 }
 
@@ -479,6 +607,7 @@ header .container {
     width: 100%;
 }
 
+<<<<<<< HEAD
 /* Sección Hero - Versión Profesional */
 #hero {
     text-align: center;
@@ -487,6 +616,17 @@ header .container {
         radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
         linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+=======
+/* Sección Hero */
+#hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 0, 0, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+>>>>>>> origin/main
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -494,6 +634,7 @@ header .container {
     align-items: center;
     position: relative;
     overflow: hidden;
+<<<<<<< HEAD
 }
 
 .hero-content {
@@ -551,11 +692,65 @@ header .container {
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
+=======
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 30%, rgba(255, 0, 0, 0.03) 50%, transparent 70%),
+        linear-gradient(-45deg, transparent 30%, rgba(255, 0, 0, 0.02) 50%, transparent 70%);
+    animation: heroShimmer 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes heroShimmer {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+#hero h2 {
+    color: #FF0000;
+    font-size: 4rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(45deg, #FF0000, #FF4444, #FF0000);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+#hero p {
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+    max-width: 700px;
+    color: #D0D0D0;
+    line-height: 1.8;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+>>>>>>> origin/main
 }
 
 /* Botones - Versión Profesional */
 .button {
     display: inline-block;
+<<<<<<< HEAD
     padding: 16px 32px;
     text-decoration: none;
     border-radius: 8px;
@@ -595,12 +790,94 @@ header .container {
     border-color: var(--color-primary);
     color: var(--color-primary);
     transform: translateY(-2px);
+=======
+    background: linear-gradient(45deg, #FF0000, #FF3333, #FF0000);
+    background-size: 200% 200%;
+    color: #FFFFFF;
+    padding: 18px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 
+        0 8px 25px rgba(255, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.button:hover {
+    background: linear-gradient(45deg, #FF3333, #FF0000, #FF3333);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        0 15px 35px rgba(255, 0, 0, 0.4),
+        0 5px 15px rgba(255, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 15px 35px rgba(255, 0, 0, 0.4),
+            0 5px 15px rgba(255, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            0 20px 40px rgba(255, 0, 0, 0.5),
+            0 8px 20px rgba(255, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
+.button:hover::before {
+    left: 100%;
+}
+
+.button:hover::after {
+    width: 300px;
+    height: 300px;
+>>>>>>> origin/main
 }
 
 /* Sobre mí */
 #about {
     padding: 80px 20px;
+<<<<<<< HEAD
     background-color: var(--bg-secondary);
+=======
+    background-color: #101010;
+>>>>>>> origin/main
 }
 
 .about-content {
@@ -617,11 +894,19 @@ header .container {
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 20px;
+<<<<<<< HEAD
     color: var(--text-tertiary);
 }
 
 .about-text strong {
     color: var(--color-primary);
+=======
+    color: #C0C0C0;
+}
+
+.about-text strong {
+    color: #FF0000;
+>>>>>>> origin/main
     font-weight: 500;
 }
 
@@ -635,6 +920,7 @@ header .container {
 .stat {
     text-align: center;
     padding: 20px;
+<<<<<<< HEAD
     background-color: var(--bg-tertiary);
     border-radius: 10px;
     border: 2px solid transparent;
@@ -646,17 +932,38 @@ header .container {
     transform: translateY(-5px);
 }
 
+=======
+    background-color: #2C2C2C;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.stat:hover {
+    border-color: #FF0000;
+    transform: translateY(-5px);
+}
+
+>>>>>>> origin/main
 .stat-number {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
     margin-bottom: 5px;
 }
 
 .stat-label {
     font-size: 0.9rem;
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: #A0A0A0;
+>>>>>>> origin/main
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -670,8 +977,12 @@ header .container {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
+<<<<<<< HEAD
     object-position: center top; /* Centra la cara en la parte superior */
     border: 4px solid var(--color-primary);
+=======
+    border: 4px solid #FF0000;
+>>>>>>> origin/main
     transition: transform 0.3s ease;
 }
 
@@ -693,13 +1004,23 @@ header .container {
 }
 
 .project-card {
+<<<<<<< HEAD
     background: linear-gradient(145deg, var(--bg-card), var(--bg-tertiary));
+=======
+    background: linear-gradient(145deg, #2C2C2C, #1F1F1F);
+>>>>>>> origin/main
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 2px solid transparent;
     position: relative;
+<<<<<<< HEAD
     box-shadow: var(--shadow-lg);
+=======
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+>>>>>>> origin/main
 }
 
 .project-card::before {
@@ -718,6 +1039,7 @@ header .container {
 .project-card:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 
+<<<<<<< HEAD
         0 25px 50px rgba(59, 130, 246, 0.2),
         0 10px 20px rgba(0, 0, 0, 0.3);
     border-color: var(--color-primary);
@@ -727,6 +1049,18 @@ header .container {
     opacity: 1;
 }
 
+=======
+        0 25px 50px rgba(255, 0, 0, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: #FF0000;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+>>>>>>> origin/main
 .project-image {
     position: relative;
     overflow: hidden;
@@ -751,6 +1085,7 @@ header .container {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+<<<<<<< HEAD
     pointer-events: none; /* Permite clicks en los links */
 }
 
@@ -782,6 +1117,18 @@ header .container {
     }
 }
 
+=======
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+>>>>>>> origin/main
 .project-links {
     display: flex;
     gap: 20px;
@@ -793,7 +1140,11 @@ header .container {
     justify-content: center;
     width: 50px;
     height: 50px;
+<<<<<<< HEAD
     background-color: var(--color-primary);
+=======
+    background-color: #FF0000;
+>>>>>>> origin/main
     color: white;
     border-radius: 50%;
     text-decoration: none;
@@ -802,7 +1153,11 @@ header .container {
 }
 
 .project-link:hover {
+<<<<<<< HEAD
     background-color: var(--color-primary-hover);
+=======
+    background-color: #D00000;
+>>>>>>> origin/main
     transform: scale(1.1);
 }
 
@@ -814,6 +1169,7 @@ header .container {
 }
 
 .project-content h3 {
+<<<<<<< HEAD
     color: var(--color-primary);
     margin-bottom: 15px;
     font-size: 1.4rem;
@@ -825,6 +1181,25 @@ header .container {
     margin-bottom: 25px;
     line-height: 1.7;
     font-size: 1rem;
+=======
+    color: #FF0000;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #FF0000, #FF4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.project-content p {
+    color: #D0D0D0;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+>>>>>>> origin/main
 }
 
 .project-tech {
@@ -834,6 +1209,7 @@ header .container {
 }
 
 .tech-tag {
+<<<<<<< HEAD
     background: var(--color-primary);
     color: white;
     padding: 6px 14px;
@@ -842,19 +1218,42 @@ header .container {
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
     transition: all 0.3s ease;
+=======
+    background: linear-gradient(45deg, #FF0000, #FF3333);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 
+        0 2px 8px rgba(255, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+>>>>>>> origin/main
 }
 
 .tech-tag:hover {
     transform: translateY(-2px);
+<<<<<<< HEAD
     background: var(--color-primary-hover);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+=======
+    box-shadow: 
+        0 4px 12px rgba(255, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+>>>>>>> origin/main
 }
 
 /* Habilidades */
 #skills {
     text-align: center;
     padding: 80px 20px;
+<<<<<<< HEAD
     background-color: var(--bg-secondary);
+=======
+    background-color: #101010;
+>>>>>>> origin/main
 }
 
 .skills-container {
@@ -868,7 +1267,11 @@ header .container {
 }
 
 .skill-category h3 {
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
     font-size: 1.5rem;
     margin-bottom: 30px;
     display: flex;
@@ -891,14 +1294,24 @@ header .container {
     display: flex;
     align-items: center;
     gap: 15px;
+<<<<<<< HEAD
     background: linear-gradient(145deg, var(--bg-card), var(--bg-tertiary));
+=======
+    background: linear-gradient(145deg, #2C2C2C, #1F1F1F);
+>>>>>>> origin/main
     padding: 25px;
     border-radius: 15px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+<<<<<<< HEAD
     box-shadow: var(--shadow-md);
+=======
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+>>>>>>> origin/main
 }
 
 .skill-item::before {
@@ -913,11 +1326,20 @@ header .container {
 }
 
 .skill-item:hover {
+<<<<<<< HEAD
     border-color: var(--color-primary);
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
         0 15px 35px rgba(59, 130, 246, 0.2),
         0 5px 15px rgba(0, 0, 0, 0.2);
+=======
+    border-color: #FF0000;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 15px 35px rgba(255, 0, 0, 0.3),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+>>>>>>> origin/main
 }
 
 .skill-item:hover::before {
@@ -926,9 +1348,16 @@ header .container {
 
 .skill-item i {
     font-size: 2.2rem;
+<<<<<<< HEAD
     color: var(--color-primary);
     width: 45px;
     text-align: center;
+=======
+    color: #FF0000;
+    width: 45px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+>>>>>>> origin/main
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
@@ -936,13 +1365,23 @@ header .container {
 
 .skill-item:hover i {
     transform: scale(1.1);
+<<<<<<< HEAD
     color: var(--color-primary-hover);
+=======
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+>>>>>>> origin/main
 }
 
 .skill-item span {
     font-weight: 500;
+<<<<<<< HEAD
     color: var(--text-secondary);
     font-size: 1rem;
+=======
+    color: #E0E0E0;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+>>>>>>> origin/main
     position: relative;
     z-index: 2;
 }
@@ -951,9 +1390,15 @@ header .container {
 #contact {
     padding: 100px 20px;
     background: 
+<<<<<<< HEAD
         radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
         linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+=======
+        radial-gradient(circle at 30% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255, 0, 0, 0.03) 0%, transparent 50%),
+        linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+>>>>>>> origin/main
     position: relative;
 }
 
@@ -965,7 +1410,11 @@ header .container {
     right: 0;
     bottom: 0;
     background: 
+<<<<<<< HEAD
         linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.02) 50%, transparent 70%);
+=======
+        linear-gradient(45deg, transparent 30%, rgba(255, 0, 0, 0.02) 50%, transparent 70%);
+>>>>>>> origin/main
     pointer-events: none;
 }
 
@@ -981,13 +1430,21 @@ header .container {
 }
 
 .contact-info h3 {
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
 .contact-info p {
+<<<<<<< HEAD
     color: var(--text-tertiary);
+=======
+    color: #C0C0C0;
+>>>>>>> origin/main
     margin-bottom: 40px;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -1003,31 +1460,51 @@ header .container {
     gap: 20px;
     margin-bottom: 25px;
     padding: 20px;
+<<<<<<< HEAD
     background-color: var(--bg-tertiary);
+=======
+    background-color: #2C2C2C;
+>>>>>>> origin/main
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
 .contact-method:hover {
+<<<<<<< HEAD
     background-color: var(--bg-card-hover);
+=======
+    background-color: #3C3C3C;
+>>>>>>> origin/main
     transform: translateX(10px);
 }
 
 .contact-method i {
     font-size: 1.5rem;
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
     width: 30px;
     text-align: center;
 }
 
 .contact-method h4 {
+<<<<<<< HEAD
     color: var(--text-secondary);
+=======
+    color: #E0E0E0;
+>>>>>>> origin/main
     margin: 0 0 5px 0;
     font-size: 1.1rem;
 }
 
 .contact-method p {
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: #A0A0A0;
+>>>>>>> origin/main
     margin: 0;
     font-size: 0.9rem;
 }
@@ -1044,12 +1521,18 @@ header .container {
     justify-content: center;
     width: 50px;
     height: 50px;
+<<<<<<< HEAD
     background-color: var(--bg-tertiary);
     color: var(--text-secondary);
+=======
+    background-color: #2C2C2C;
+    color: #E0E0E0;
+>>>>>>> origin/main
     border-radius: 50%;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 1.2rem;
+<<<<<<< HEAD
 }
 
 .social-links a:hover {
@@ -1114,6 +1597,76 @@ header .container {
         inset 0 2px 4px rgba(0, 0, 0, 0.3),
         0 0 0 3px rgba(59, 130, 246, 0.1),
         0 0 20px rgba(59, 130, 246, 0.15);
+=======
+}
+
+.social-links a:hover {
+    background-color: #FF0000;
+    color: white;
+    transform: translateY(-5px);
+}
+
+.contact-form {
+    background: linear-gradient(145deg, #2C2C2C, #1F1F1F);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.05) 0%, transparent 50%, rgba(255, 0, 0, 0.02) 100%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: #E0E0E0;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 18px;
+    border: 2px solid #3C3C3C;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #1C1C1C, #0F0F0F);
+    color: #E0E0E0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #FF0000;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 0 3px rgba(255, 0, 0, 0.1),
+        0 0 20px rgba(255, 0, 0, 0.2);
+>>>>>>> origin/main
     transform: translateY(-2px);
 }
 
@@ -1124,6 +1677,7 @@ header .container {
 
 .submit-btn {
     width: 100%;
+<<<<<<< HEAD
     background: var(--color-primary);
     color: white;
     padding: 18px;
@@ -1180,6 +1734,73 @@ header .container {
     animation: none;
 }
 
+=======
+    background: linear-gradient(45deg, #FF0000, #FF3333, #FF0000);
+    background-size: 200% 200%;
+    color: white;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(255, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #FF3333, #FF0000, #FF3333);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 12px 30px rgba(255, 0, 0, 0.4),
+        0 5px 15px rgba(255, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: submitPulse 2s ease-in-out infinite;
+}
+
+@keyframes submitPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 12px 30px rgba(255, 0, 0, 0.4),
+            0 5px 15px rgba(255, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            0 15px 35px rgba(255, 0, 0, 0.5),
+            0 8px 20px rgba(255, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:disabled {
+    background: linear-gradient(45deg, #666, #888);
+    cursor: not-allowed;
+    transform: none;
+    animation: none;
+}
+
+>>>>>>> origin/main
 .submit-btn:disabled:hover {
     transform: none;
     box-shadow: 0 8px 25px rgba(102, 102, 102, 0.3);
@@ -1236,8 +1857,13 @@ header .container {
 
 /* Footer */
 footer {
+<<<<<<< HEAD
     background-color: var(--bg-header);
     border-top: 3px solid var(--color-primary);
+=======
+    background-color: #151515;
+    border-top: 3px solid #FF0000;
+>>>>>>> origin/main
     padding: 60px 20px 20px;
 }
 
@@ -1249,19 +1875,31 @@ footer {
 }
 
 .footer-info h3 {
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
     margin-bottom: 15px;
     font-size: 1.5rem;
 }
 
 .footer-info p {
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: #A0A0A0;
+>>>>>>> origin/main
     line-height: 1.6;
 }
 
 .footer-links h4,
 .footer-social h4 {
+<<<<<<< HEAD
     color: var(--text-secondary);
+=======
+    color: #E0E0E0;
+>>>>>>> origin/main
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
@@ -1277,13 +1915,21 @@ footer {
 }
 
 .footer-links a {
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: #A0A0A0;
+>>>>>>> origin/main
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
 }
 
 .footer-social .social-links {
@@ -1291,18 +1937,30 @@ footer {
 }
 
 .footer-bottom {
+<<<<<<< HEAD
     border-top: 1px solid var(--border-color);
+=======
+    border-top: 1px solid #3C3C3C;
+>>>>>>> origin/main
     padding-top: 20px;
     text-align: center;
 }
 
 .footer-bottom p {
+<<<<<<< HEAD
     color: var(--text-muted);
+=======
+    color: #A0A0A0;
+>>>>>>> origin/main
     margin: 5px 0;
 }
 
 .footer-bottom i {
+<<<<<<< HEAD
     color: var(--color-primary);
+=======
+    color: #FF0000;
+>>>>>>> origin/main
 }
 
 /* Desktop Enhancements */
@@ -1333,6 +1991,7 @@ footer {
     }
     
     /* Enhanced typography for desktop */
+<<<<<<< HEAD
     .hero-title {
         font-size: 4.5rem;
     }
@@ -1343,6 +2002,14 @@ footer {
     
     .hero-description {
         font-size: 1.25rem;
+=======
+    #hero h2 {
+        font-size: 4.5rem;
+    }
+    
+    #hero p {
+        font-size: 1.5rem;
+>>>>>>> origin/main
     }
     
     /* Better spacing for desktop */
@@ -1378,8 +2045,13 @@ footer {
         width: 95%;
     }
     
+<<<<<<< HEAD
     .hero-title {
         font-size: 3rem;
+=======
+    #hero h2 {
+        font-size: 2.5rem;
+>>>>>>> origin/main
     }
     
     .about-content {
@@ -1409,6 +2081,7 @@ footer {
     
     /* Mobile Menu */
     .mobile-menu-btn {
+<<<<<<< HEAD
         display: flex !important;
         z-index: 1001 !important;
         pointer-events: auto !important;
@@ -1416,11 +2089,19 @@ footer {
     
     .nav-menu {
         position: fixed !important;
+=======
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+>>>>>>> origin/main
         top: 0;
         left: -100%;
         width: 80%;
         max-width: 300px;
         height: 100vh;
+<<<<<<< HEAD
         background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
         box-shadow: 2px 0 20px rgba(59, 130, 246, 0.2);
         border-right: 2px solid rgba(59, 130, 246, 0.3);
@@ -1440,6 +2121,18 @@ footer {
         flex-direction: column;
         padding: 0 20px;
         gap: 0;
+=======
+        background: linear-gradient(135deg, #1C1C1C, #151515);
+        box-shadow: 2px 0 20px rgba(255, 0, 0, 0.2);
+        border-right: 2px solid rgba(255, 0, 0, 0.3);
+        transition: left 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+>>>>>>> origin/main
     }
     
     /* Menu overlay */
@@ -1466,6 +2159,7 @@ footer {
         pointer-events: none !important;
     }
     
+<<<<<<< HEAD
     /* Asegurar que los botones sean clickeables en móvil */
     .mobile-menu-btn,
     .accessibility-button {
@@ -1485,6 +2179,8 @@ footer {
         z-index: 10001 !important;
     }
     
+=======
+>>>>>>> origin/main
     .menu-header {
         display: flex;
     }
@@ -1567,6 +2263,7 @@ footer {
     
     /* Hero - Mobile Optimized */
     #hero {
+<<<<<<< HEAD
         padding: 100px 15px 60px;
         min-height: calc(100vh - 70px);
     }
@@ -1598,6 +2295,34 @@ footer {
     .button {
         padding: 14px 28px;
         font-size: 1rem;
+=======
+        padding: 60px 15px;
+        min-height: calc(100vh - 70px);
+        background: 
+            radial-gradient(circle at 50% 30%, rgba(255, 0, 0, 0.08) 0%, transparent 60%),
+            linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    }
+    
+    #hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+    
+    #hero p {
+        font-size: 1.2rem;
+        margin-bottom: 35px;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+    
+    .button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+>>>>>>> origin/main
     }
     
     /* About - Mobile Optimized */
@@ -1634,8 +2359,12 @@ footer {
     .about-image img {
         width: 180px;
         height: 180px;
+<<<<<<< HEAD
         border: 3px solid var(--color-primary);
         object-position: center top;
+=======
+        border: 3px solid #FF0000;
+>>>>>>> origin/main
     }
     
     /* Projects - Mobile Optimized */
@@ -1791,6 +2520,7 @@ footer {
     
     /* Hero - Small Mobile Optimized */
     #hero {
+<<<<<<< HEAD
         padding: 80px 12px 50px;
         min-height: calc(100vh - 60px);
     }
@@ -1814,6 +2544,34 @@ footer {
     .button {
         padding: 12px 24px;
         font-size: 0.95rem;
+=======
+        padding: 50px 12px;
+        min-height: calc(100vh - 60px);
+        background: 
+            radial-gradient(circle at 50% 25%, rgba(255, 0, 0, 0.06) 0%, transparent 70%),
+            linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    }
+    
+    #hero h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 15px;
+        text-shadow: 0 0 15px rgba(255, 0, 0, 0.15);
+    }
+    
+    #hero p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+    
+    .button {
+        padding: 12px 25px;
+        font-size: 1rem;
+        border-radius: 25px;
+        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.25);
+>>>>>>> origin/main
     }
     
     /* About - Small Mobile Optimized */
@@ -1847,8 +2605,12 @@ footer {
     .about-image img {
         width: 140px;
         height: 140px;
+<<<<<<< HEAD
         border: 2px solid var(--color-primary);
         object-position: center top;
+=======
+        border: 2px solid #FF0000;
+>>>>>>> origin/main
     }
     
     /* Projects - Small Mobile Optimized */
@@ -1977,6 +2739,7 @@ footer {
     
     /* Hero - Extra Small Mobile */
     #hero {
+<<<<<<< HEAD
         padding: 70px 10px 40px;
     }
     
@@ -1994,11 +2757,31 @@ footer {
     .hero-description {
         font-size: 0.9rem;
         margin-bottom: 1.5rem;
+=======
+        padding: 40px 10px;
+    }
+    
+    #hero h2 {
+        font-size: 1.7rem;
+        line-height: 1.1;
+        margin-bottom: 12px;
+    }
+    
+    #hero p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        line-height: 1.4;
+>>>>>>> origin/main
     }
     
     .button {
         padding: 10px 20px;
+<<<<<<< HEAD
         font-size: 0.9rem;
+=======
+        font-size: 0.95rem;
+        border-radius: 20px;
+>>>>>>> origin/main
     }
     
     /* About - Extra Small Mobile */
@@ -2032,8 +2815,12 @@ footer {
     .about-image img {
         width: 120px;
         height: 120px;
+<<<<<<< HEAD
         border: 2px solid var(--color-primary);
         object-position: center top;
+=======
+        border: 2px solid #FF0000;
+>>>>>>> origin/main
     }
     
     /* Projects - Extra Small Mobile */

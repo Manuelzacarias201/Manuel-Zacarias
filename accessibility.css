@@ -1,21 +1,35 @@
 /* Botón de accesibilidad flotante */
 .accessibility-button {
+<<<<<<< HEAD
     position: fixed !important;
     right: 20px;
+=======
+    position: fixed;
+    left: 20px;
+>>>>>>> origin/main
     bottom: 20px;
     width: 56px;
     height: 56px;
     border-radius: 50%;
+<<<<<<< HEAD
     background: var(--color-primary, #3B82F6);
     border: none;
     color: white;
     cursor: pointer;
     display: flex !important;
+=======
+    background: #1a73e8;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+>>>>>>> origin/main
     align-items: center;
     justify-content: center;
     font-size: 24px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     transition: all 0.3s ease;
+<<<<<<< HEAD
     z-index: 10000 !important;
     pointer-events: auto !important;
     -webkit-tap-highlight-color: transparent;
@@ -25,16 +39,45 @@
 .accessibility-button:hover {
     transform: scale(1.1);
     background: var(--color-primary-hover, #2563EB);
+=======
+    z-index: 99999 !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    touch-action: manipulation;
+}
+
+/* Forzar visibilidad e interacción por encima de overlays globales */
+.accessibility-button, .accessibility-panel {
+    z-index: 2147483647 !important; /* máximo valor z-index para evitar bloqueos */
+    pointer-events: auto !important;
+}
+
+.accessibility-button:hover {
+    transform: scale(1.1);
+    background: #1557b0;
+>>>>>>> origin/main
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 .accessibility-button:focus {
     outline: none;
+<<<<<<< HEAD
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .accessibility-button:active {
     transform: scale(0.95);
+=======
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.5), 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.accessibility-button i {
+    transition: transform 0.3s ease;
+}
+
+.accessibility-button:hover i {
+    transform: rotate(360deg);
+>>>>>>> origin/main
 }
 
 /* Estilos para los estados activos */
@@ -58,6 +101,7 @@
     font-family: OpenDyslexic, Arial, sans-serif !important;
 }
 
+<<<<<<< HEAD
 /* Panel de accesibilidad simplificado */
 .accessibility-panel {
     position: fixed;
@@ -192,6 +236,93 @@
     padding: 4px 8px;
     font-weight: bold;
     font-size: 14px;
+=======
+/* Panel de accesibilidad flotante */
+.accessibility-panel {
+    position: fixed;
+    left: 90px;
+    bottom: 30px;
+    background: #f4f5f7;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 22px 24px;
+    width: 340px;
+    display: none;
+    color: #222;
+    z-index: 99998 !important;
+    pointer-events: auto !important;
+}
+.accessibility-panel.active {
+    display: block;
+}
+.accessibility-panel h3 {
+    margin: 0 0 18px 0;
+    font-size: 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.accessibility-arrow {
+    font-size: 16px;
+    margin-left: 8px;
+}
+.accessibility-profiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+.profile-btn {
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 10px;
+    font-size: 16px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: background 0.2s, color 0.2s;
+}
+.profile-btn:hover {
+    background: #e8f0fe;
+    color: #1a73e8;
+}
+.profile-df {
+    background: #eee;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #222;
+}
+.accessibility-functions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+    /* Close button */
+    .accessibility-close {
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #333;
+    }
+    .accessibility-panel-header {
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+.accessibility-option i, .profile-btn i {
+    font-size: 20px;
+    width: 28px;
+    text-align: center;
+>>>>>>> origin/main
 }
 
 /* Contraste inteligente */
@@ -254,6 +385,7 @@
 }
 
 @media (max-width: 768px) {
+<<<<<<< HEAD
     .accessibility-button {
         right: 16px !important;
         bottom: 16px !important;
@@ -285,4 +417,59 @@
         pointer-events: auto !important;
         cursor: pointer;
     }
+=======
+    .accessibility-panel {
+        left: 50%;
+        bottom: 8px;
+        transform: translateX(-50%);
+        width: 96vw;
+        max-width: 720px;
+        padding: 14px;
+        border-radius: 12px 12px 8px 8px;
+    }
+    .accessibility-functions {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .accessibility-profiles {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    .accessibility-option, .profile-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+    .accessibility-panel[aria-modal="true"] {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.4);
+    }
+    .accessibility-panel[aria-modal="true"] .accessibility-panel-inner {
+        width: 94vw;
+        max-height: 90vh;
+        overflow: auto;
+    }
+}
+
+/* Close button */
+.accessibility-close {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+.accessibility-panel-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+>>>>>>> origin/main
 }
