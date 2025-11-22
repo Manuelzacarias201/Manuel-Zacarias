@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
+    <meta name="keywords" content="desarrollador frontend, programador, React, Angular, JavaScript, TypeScript, UI/UX, portafolio">
+    <meta name="author" content="Manuel Zacarias">
+    <meta property="og:title" content="Manuel Zacarias - Desarrollador Frontend">
+    <meta property="og:description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://manuelzacarias.site">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manuel Zacarias - Desarrollador Frontend">
+    <meta name="twitter:description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
+    <title>Manuel Zacarias - Desarrollador Frontend | Portafolio Profesional</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        'primary-hover': '#2563EB',
+                    },
+                    screens: {
+                        'xs': '360px',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accessibility.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Script principal -->
+    <script src="script.js" defer></script>
+    <script src="accessibility.js" defer></script>
+</head>
+<body>
+    <!-- Botón de accesibilidad -->
+    <button class="accessibility-button" aria-label="Opciones de accesibilidad" title="Accesibilidad">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <!-- Panel de accesibilidad simplificado -->
+    <div class="accessibility-panel" aria-label="Panel de accesibilidad" role="dialog" aria-modal="false" aria-hidden="true">
+        <div class="accessibility-panel-header">
+            <h3><i class="fas fa-universal-access"></i> Accesibilidad</h3>
+            <button class="accessibility-close" aria-label="Cerrar panel">✕</button>
+        </div>
+        <div class="accessibility-content">
+            <div class="accessibility-section">
+                <h4>Acciones rápidas</h4>
+                <div class="accessibility-actions">
+                    <button class="accessibility-option" data-action="fontSize" data-change="increase" title="Aumentar tamaño de texto">
+                        <i class="fas fa-text-height"></i> <span>Texto +</span>
+                    </button>
+                    <button class="accessibility-option" data-action="fontSize" data-change="decrease" title="Disminuir tamaño de texto">
+                        <i class="fas fa-text-height"></i> <span>Texto -</span>
+                    </button>
+                    <button class="accessibility-option" data-action="contrast" title="Alto contraste">
+                        <i class="fas fa-adjust"></i> <span>Contraste</span>
+                    </button>
+                    <button class="accessibility-option" data-action="dyslexic" title="Fuente para dislexia">
+                        <span class="profile-df">Df</span> <span>Dislexia</span>
+                    </button>
+                    <button class="accessibility-option" data-action="stop-animations" title="Detener animaciones">
+                        <i class="fas fa-pause"></i> <span>Sin animaciones</span>
+                    </button>
+                    <button class="accessibility-option" data-action="reset" title="Restablecer todo">
+                        <i class="fas fa-undo"></i> <span>Restablecer</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="logo text-xl sm:text-2xl md:text-3xl">Manuel Zacarias</h1>
+            <button class="mobile-menu-btn" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu md:!flex">
+                <div class="menu-header">
+                    <h3>Menú</h3>
+                    <button class="menu-close-btn" aria-label="Cerrar menú">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="md:flex md:gap-6 lg:gap-8">
+                    <li><a href="#hero"><i class="fas fa-home"></i><span>Sobre mí</span></a></li>
+                    <li><a href="#projects"><i class="fas fa-briefcase"></i><span>Proyectos</span></a></li>
+                    <li><a href="#skills"><i class="fas fa-rocket"></i><span>Habilidades</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contacto</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <section id="hero" class="px-4 sm:px-6 lg:px-8">
+        <div class="hero-content max-w-4xl mx-auto">
+            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl">¡Hola! Soy <span class="hero-name">Manuel Zacarias</span></h1>
+            <p class="hero-subtitle text-lg sm:text-xl md:text-2xl mt-4">Desarrollador Frontend apasionado por crear experiencias digitales excepcionales</p>
+            <p class="hero-description text-base sm:text-lg md:text-xl mt-4 max-w-2xl mx-auto">Construyo soluciones creativas y eficientes utilizando tecnología moderna, transformando ideas complejas en interfaces intuitivas y atractivas.</p>
+            <div class="hero-cta flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <a href="#projects" class="button button-primary text-center">Ver mis proyectos</a>
+                <a href="#contact" class="button button-secondary text-center">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl">Sobre mí</h2>
+        <div class="about-content grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-8 md:mt-12">
+            <div class="about-text text-center md:text-left">
+                <p class="text-base sm:text-lg mb-4">Soy un <strong>Desarrollador Frontend</strong> apasionado con más de 3 años de experiencia creando interfaces de usuario modernas y funcionales. Me especializo en transformar ideas complejas en experiencias digitales intuitivas y atractivas.</p>
+                <p class="text-base sm:text-lg mb-6">Mi enfoque combina habilidades técnicas sólidas con una comprensión profunda del diseño UX/UI, lo que me permite crear aplicaciones web que no solo funcionan perfectamente, sino que también ofrecen una experiencia de usuario excepcional.</p>
+                <div class="about-stats grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8">
+                    <div class="stat">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Proyectos completados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Tecnologías dominadas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image flex justify-center md:justify-end">
+                <img src="perfil.jpg" alt="Manuel Zacarias - Desarrollador Frontend" loading="lazy" class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl">Proyectos Destacados</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-8 md:mt-12">
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="goflow.png" alt="GoFlow - Gestor de Tareas con Angular" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto GoFlow">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>GoFlow - Gestor de Tareas</h3>
+                    <p>Aplicación web moderna para gestión de tareas con funcionalidades avanzadas como drag & drop, filtros inteligentes y colaboración en tiempo real.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">RxJS</span>
+                        <span class="tech-tag">Material Design</span>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="abarrotes.png" alt="Tienda en Línea - E-commerce con JavaFX" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto Tienda en Línea">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                <h3>Tienda en Línea</h3>
+                    <p>Plataforma completa de e-commerce con sistema de inventario, carrito de compras, procesamiento de pagos y panel administrativo.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JavaFX</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="consultorio.png" alt="Consultorio Médico - Sistema de gestión con React" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto Consultorio Médico">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Consultorio Natura</h3>
+                    <p>Sistema integral para gestión de consultorios médicos con agenda de citas, historial de pacientes, inventario de medicamentos y reportes.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="smart tank.png" alt="Smart Tank - Sistema de Monitoreo Inteligente de Agua" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto Smart Tank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Smart Tank</h3>
+                    <p>Sistema automatizado basado en Raspberry Pi para monitoreo en tiempo real de la calidad del agua, incluyendo medición de pH, turbidez, conductividad eléctrica y control automático de purificación.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Sensores</span>
+                        <span class="tech-tag">Automatización</span>
+                    </div>
+                </div>
+            </article>
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="smart garden.jpg" alt="SmartGarden Logo" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="Ver demo del proyecto SmartGarden">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" aria-label="Ver código en GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="smartgarden-title">Smart Garden</h3>
+                        <p>Solución tecnológica para la gestión automatizada de huertos urbanos, con monitoreo en tiempo real, alertas basadas en umbrales, integración IoT y sistema de eventos asíncronos con RabbitMQ.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag tech-tag-red">Go</span>
+                            <span class="tech-tag tech-tag-red">Gin</span>
+                            <span class="tech-tag tech-tag-red">MySQL</span>
+                            <span class="tech-tag tech-tag-red">RabbitMQ</span>
+                            <span class="tech-tag tech-tag-red">IoT</span>
+                        </div>
+                    </div>
+                </article>
+        </div>
+    </section>
+
+    <section id="skills" class="container px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl">Habilidades Técnicas</h2>
+        <div class="skills-container max-w-6xl mx-auto mt-8 md:mt-12">
+            <div class="skill-category mb-8 md:mb-12">
+                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-code"></i> Frontend</h3>
+                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
+                    <div class="skill-item">
+                        <i class="fab fa-js-square"></i>
+                        <span>JavaScript (ES6+)</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-angular"></i>
+                        <span>Angular</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-sass"></i>
+                        <span>Sass/SCSS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category mb-8 md:mb-12">
+                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-server"></i> Backend & Tools</h3>
+                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
+                    <div class="skill-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category mb-8 md:mb-12">
+                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-desktop"></i> Sistemas Operativos</h3>
+                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
+                    <div class="skill-item">
+                        <i class="fab fa-linux"></i>
+                        <span>Linux</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-windows"></i>
+                        <span>Windows</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-apple"></i>
+                        <span>macOS</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="kali-logo" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 1c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm-.01 2.65c-.79.02-1.53.38-2.05.99L6.5 10.88c-.19.23-.33.5-.4.79l-1.36 5.53c-.06.25-.04.52.06.76l1.57 3.67c.12.28.33.5.6.63l3.79 1.8c.23.11.49.15.74.11l5.7-.85c.29-.04.56-.18.77-.39l3.11-3.11c.2-.2.34-.47.38-.76l.74-4.95c.04-.25 0-.52-.11-.75l-1.86-3.85c-.13-.27-.35-.48-.63-.6l-3.86-1.69c-.12-.06-.26-.09-.39-.1l-3.3-.11h-.06zm.38 1.36l3.3.11 3.86 1.69.11.24-2.27.35-1.69.65-1.86.08-1.55-.6.1-2.52zm-1.13.13l-.11 2.58-2.38 1.77-2.08.08L9.95 8.3l1.29-.16zm-3.37 4.78l5.42 2.52-.32 2.44-3.55 2.36-1.27.32-1.86-4.35 1.58-3.29zm6.75 2.6l5.47-2.52 1.8 3.71-.11.97-4.27.89-2.41-1.29-.48-1.76zm-3.54 3.95l2.6 2.36-.08 1.29-2.44.35-.08-3.95z"/>
+                        </svg>
+                        <span>Kali Linux</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-ubuntu"></i>
+                        <span>Ubuntu</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>Raspberry Pi OS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-chrome"></i>
+                        <span>Chrome OS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category mb-8 md:mb-12">
+                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-palette"></i> Design & Soft Skills</h3>
+                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
+                    <div class="skill-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>UI/UX Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-users"></i>
+                        <span>Metodologías Ágiles</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Comunicación</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Resolución de Problemas</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Gestión de Tiempo</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-handshake"></i>
+                        <span>Trabajo en Equipo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl">Contacto</h2>
+        <div class="contact-content grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-8 md:mt-12">
+            <div class="contact-info text-center lg:text-left">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl mb-4">¡Hablemos de tu próximo proyecto!</h3>
+                <p class="text-base sm:text-lg mb-8">Estoy siempre interesado en nuevos desafíos y oportunidades. Si tienes un proyecto en mente o simplemente quieres charlar sobre tecnología, no dudes en contactarme.</p>
+                <div class="contact-methods space-y-4 mb-8">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>zacariasmanuel501@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+52 961 119 4991</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Tuxtla Gutiérrez, Chiapas, México</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links flex justify-center lg:justify-start gap-4">
+                    <a href="https://github.com/manuelzacarias201" target="_blank" rel="noopener" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/manuel-de-jes%C3%BAs-hern%C3%A1ndez-zacarias-945a2b31a/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/Manuelzacariasz" target="_blank" rel="noopener" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:zacariasmanuel501@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <form id="contact-form" class="contact-form w-full" action="https://formspree.io/f/mldplqnn" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre *</label>
+                    <input type="text" id="name" name="name" required class="w-full">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required class="w-full">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto *</label>
+                    <input type="text" id="subject" name="subject" required class="w-full">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje *</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full"></textarea>
+                </div>
+                <button type="submit" class="submit-btn w-full">
+                    <span class="btn-text">Enviar Mensaje</span>
+                    <span class="btn-loading">
+                        <i class="fas fa-spinner fa-spin"></i> Enviando...
+                    </span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container px-4 sm:px-6 lg:px-8">
+            <div class="footer-content grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <div class="footer-info text-center md:text-left">
+                    <h3 class="text-xl sm:text-2xl mb-3">Manuel Zacarias</h3>
+                    <p class="text-sm sm:text-base">Desarrollador Frontend apasionado por crear experiencias digitales excepcionales.</p>
+                </div>
+                <div class="footer-links text-center md:text-left">
+                    <h4 class="text-lg sm:text-xl mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about">Sobre mí</a></li>
+                        <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#skills">Habilidades</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social text-center md:text-left">
+                    <h4 class="text-lg sm:text-xl mb-4">Sígueme</h4>
+                    <div class="social-links flex justify-center md:justify-start gap-4">
+                        <a href="https://github.com/manuelzacarias201" target="_blank" rel="noopener" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/manuel-de-jes%C3%BAs-hern%C3%A1ndez-zacarias-945a2b31a/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/Manuelzacariasz" target="_blank" rel="noopener" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 Manuel Zacarias. Todos los derechos reservados.</p>
+                    <p>Hecho con <i class="fas fa-heart"></i> y mucho café</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
