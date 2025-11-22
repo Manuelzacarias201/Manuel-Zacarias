@@ -14,7 +14,6 @@
     <meta name="twitter:title" content="Manuel Zacarias - Desarrollador Frontend">
     <meta name="twitter:description" content="Portafolio profesional de Manuel Zacarias - Desarrollador Frontend especializado en React, Angular, JavaScript y diseño UI/UX">
     <title>Manuel Zacarias - Desarrollador Frontend | Portafolio Profesional</title>
-<<<<<<< HEAD
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,8 +31,6 @@
             }
         }
     </script>
-=======
->>>>>>> origin/main
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="accessibility.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -44,89 +41,27 @@
 </head>
 <body>
     <!-- Botón de accesibilidad -->
-<<<<<<< HEAD
     <button class="accessibility-button" aria-label="Opciones de accesibilidad" title="Accesibilidad">
         <i class="fas fa-universal-access"></i>
     </button>
     <!-- Panel de accesibilidad simplificado -->
     <div class="accessibility-panel" aria-label="Panel de accesibilidad" role="dialog" aria-modal="false" aria-hidden="true">
         <div class="accessibility-panel-header">
-            <h3><i class="fas fa-universal-access"></i> Accesibilidad</h3>
-            <button class="accessibility-close" aria-label="Cerrar panel">✕</button>
+            <h3><i class="fas fa-universal-access"></i> Opciones de Accesibilidad</h3>
+            <button class="accessibility-close" aria-label="Cerrar panel de accesibilidad">✕</button>
         </div>
-        <div class="accessibility-content">
-            <div class="accessibility-section">
-                <h4>Acciones rápidas</h4>
-                <div class="accessibility-actions">
-                    <button class="accessibility-option" data-action="fontSize" data-change="increase" title="Aumentar tamaño de texto">
-                        <i class="fas fa-text-height"></i> <span>Texto +</span>
-                    </button>
-                    <button class="accessibility-option" data-action="fontSize" data-change="decrease" title="Disminuir tamaño de texto">
-                        <i class="fas fa-text-height"></i> <span>Texto -</span>
-                    </button>
-                    <button class="accessibility-option" data-action="contrast" title="Alto contraste">
-                        <i class="fas fa-adjust"></i> <span>Contraste</span>
-                    </button>
-                    <button class="accessibility-option" data-action="dyslexic" title="Fuente para dislexia">
-                        <span class="profile-df">Df</span> <span>Dislexia</span>
-                    </button>
-                    <button class="accessibility-option" data-action="stop-animations" title="Detener animaciones">
-                        <i class="fas fa-pause"></i> <span>Sin animaciones</span>
-                    </button>
-                    <button class="accessibility-option" data-action="reset" title="Restablecer todo">
-                        <i class="fas fa-undo"></i> <span>Restablecer</span>
-                    </button>
-                </div>
-            </div>
+        <div class="accessibility-functions">
+            <button class="accessibility-option" data-action="fontSize" data-change="increase" aria-label="Aumentar tamaño de texto"><i class="fas fa-text-height"></i> Aumentar Texto</button>
+            <button class="accessibility-option" data-action="fontSize" data-change="decrease" aria-label="Disminuir tamaño de texto"><i class="fas fa-text-height fa-flip-horizontal"></i> Disminuir Texto</button>
+            <button class="accessibility-option" data-action="contrast" aria-label="Alternar alto contraste"><i class="fas fa-adjust"></i> Alto Contraste</button>
+            <button class="accessibility-option" data-action="dyslexic" aria-label="Alternar fuente para dislexia"><span class="profile-df">Df</span> Fuente Dislexia</button>
+            <button class="accessibility-option" data-action="stop-animations" aria-label="Detener animaciones"><i class="fas fa-pause"></i> Sin Animaciones</button>
+            <button class="accessibility-option" data-action="reset" aria-label="Restablecer todas las opciones"><i class="fas fa-undo"></i> Restablecer</button>
         </div>
     </div>
     <header>
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <h1 class="logo text-xl sm:text-2xl md:text-3xl">Manuel Zacarias</h1>
-=======
-    <button class="accessibility-button" aria-label="Opciones de accesibilidad">
-        <i class="fas fa-universal-access"></i>
-    </button>
-    <!-- Panel de accesibilidad avanzado -->
-    <div class="accessibility-panel" aria-label="Panel de accesibilidad" role="dialog" aria-modal="false" aria-hidden="true">
-        <div class="accessibility-panel-header">
-            <h3><i class="fas fa-universal-access"></i> Perfiles de accesibilidad <span class="accessibility-arrow">▼</span></h3>
-            <button class="accessibility-close" aria-label="Cerrar panel de accesibilidad">✕</button>
-        </div>
-        <div class="accessibility-profiles">
-            <button class="profile-btn" data-profile="motora"><i class="fas fa-wheelchair"></i> Discapacidad Motora</button>
-            <button class="profile-btn" data-profile="ceguera"><i class="fas fa-wave-square"></i> Ceguera</button>
-            <button class="profile-btn" data-profile="daltonismo"><i class="fas fa-tint"></i> Daltonismo</button>
-            <button class="profile-btn" data-profile="dislexia"><span class="profile-df">Df</span> Dislexia</button>
-            <button class="profile-btn" data-profile="vision-baja"><i class="fas fa-eye"></i> Visión baja</button>
-            <button class="profile-btn" data-profile="cognitivo"><i class="fas fa-puzzle-piece"></i> Cognitivo y aprendizaje</button>
-            <button class="profile-btn" data-profile="epilepsia"><i class="fas fa-brain"></i> Convulsiones y epilépticos</button>
-            <button class="profile-btn" data-profile="tdah"><i class="fas fa-bullseye"></i> TDAH</button>
-        </div>
-        <hr>
-        <div class="accessibility-functions">
-            <button class="accessibility-option" data-action="read"><i class="fas fa-wave-square"></i> Leer página</button>
-            <button class="accessibility-option" data-action="contrast"><i class="fas fa-adjust"></i> Contraste +</button>
-            <button class="accessibility-option" data-action="smart-contrast"><i class="fas fa-adjust"></i> Contraste inteligente</button>
-            <button class="accessibility-option" data-action="highlight-links"><i class="fas fa-link"></i> Resaltar enlaces</button>
-            <button class="accessibility-option" data-action="fontSize" data-change="increase"><i class="fas fa-text-height"></i> Agrandar texto</button>
-            <button class="accessibility-option" data-action="lineSpacing"><i class="fas fa-arrows-alt-h"></i> Espaciado de texto</button>
-            <button class="accessibility-option" data-action="stop-animations"><i class="fas fa-pause"></i> Detener animaciones</button>
-            <button class="accessibility-option" data-action="hide-images"><i class="fas fa-image"></i> Ocultar imágenes</button>
-            <button class="accessibility-option" data-action="dyslexic"><span class="profile-df">Df</span> Apto para dislexia</button>
-            <button class="accessibility-option" data-action="cursor"><i class="fas fa-mouse-pointer"></i> Cursor</button>
-            <button class="accessibility-option" data-action="info"><i class="fas fa-info-circle"></i> Información</button>
-            <button class="accessibility-option" data-action="structure"><i class="fas fa-layer-group"></i> Estructura de la página</button>
-            <button class="accessibility-option" data-action="lineHeight"><i class="fas fa-arrows-alt-v"></i> Altura de la línea</button>
-            <button class="accessibility-option" data-action="align-text"><i class="fas fa-align-left"></i> Texto alineado</button>
-            <button class="accessibility-option" data-action="saturation"><i class="fas fa-tint"></i> Saturación</button>
-            <button class="accessibility-option" data-action="reset"><i class="fas fa-undo"></i> Restablecer</button>
-        </div>
-    </div>
-    <header>
-        <div class="container">
-            <h1 class="logo">Manuel Zacarias</h1>
->>>>>>> origin/main
             <button class="mobile-menu-btn" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
@@ -152,42 +87,6 @@
     <!-- Menu Overlay -->
     <div class="menu-overlay"></div>
 
-<<<<<<< HEAD
-    <section id="hero" class="px-4 sm:px-6 lg:px-8">
-        <div class="hero-content max-w-4xl mx-auto">
-            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl">¡Hola! Soy <span class="hero-name">Manuel Zacarias</span></h1>
-            <p class="hero-subtitle text-lg sm:text-xl md:text-2xl mt-4">Desarrollador Frontend apasionado por crear experiencias digitales excepcionales</p>
-            <p class="hero-description text-base sm:text-lg md:text-xl mt-4 max-w-2xl mx-auto">Construyo soluciones creativas y eficientes utilizando tecnología moderna, transformando ideas complejas en interfaces intuitivas y atractivas.</p>
-            <div class="hero-cta flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <a href="#projects" class="button button-primary text-center">Ver mis proyectos</a>
-                <a href="#contact" class="button button-secondary text-center">Contactar</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="container px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl">Sobre mí</h2>
-        <div class="about-content grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-8 md:mt-12">
-            <div class="about-text text-center md:text-left">
-                <p class="text-base sm:text-lg mb-4">Soy un <strong>Desarrollador Frontend</strong> apasionado con más de 3 años de experiencia creando interfaces de usuario modernas y funcionales. Me especializo en transformar ideas complejas en experiencias digitales intuitivas y atractivas.</p>
-                <p class="text-base sm:text-lg mb-6">Mi enfoque combina habilidades técnicas sólidas con una comprensión profunda del diseño UX/UI, lo que me permite crear aplicaciones web que no solo funcionan perfectamente, sino que también ofrecen una experiencia de usuario excepcional.</p>
-                <div class="about-stats grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8">
-=======
-    <section id="hero">
-        <h2>¡Hola! Soy Manuel Zacarias</h2>
-        <h2>Mi pasión es desarrollar software de calidad.</h2>
-        <p>Construyo soluciones creativas y eficientes utilizando tecnología moderna.</p>
-        <a href="#projects" class="button">Ver mis proyectos</a>
-    </section>
-
-    <section id="about" class="container">
-        <h2>Sobre mí</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Soy un <strong>Desarrollador Frontend</strong> apasionado con más de 3 años de experiencia creando interfaces de usuario modernas y funcionales. Me especializo en transformar ideas complejas en experiencias digitales intuitivas y atractivas.</p>
-                <p>Mi enfoque combina habilidades técnicas sólidas con una comprensión profunda del diseño UX/UI, lo que me permite crear aplicaciones web que no solo funcionan perfectamente, sino que también ofrecen una experiencia de usuario excepcional.</p>
-                <div class="about-stats">
->>>>>>> origin/main
                     <div class="stat">
                         <span class="stat-number">3+</span>
                         <span class="stat-label">Años de experiencia</span>
@@ -202,26 +101,10 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="about-image flex justify-center md:justify-end">
-                <img src="perfil.jpg" alt="Manuel Zacarias - Desarrollador Frontend" loading="lazy" class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
-=======
-            <div class="about-image">
-                <img src="perfil.jpg" alt="Manuel Zacarias - Desarrollador Frontend" loading="lazy">
->>>>>>> origin/main
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
-    <section id="projects" class="container px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl">Proyectos Destacados</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-8 md:mt-12">
-=======
-    <section id="projects" class="container">
-        <h2>Proyectos Destacados</h2>
-        <div class="grid">
->>>>>>> origin/main
             <article class="project-card">
                 <div class="project-image">
                     <img src="goflow.png" alt="GoFlow - Gestor de Tareas con Angular" loading="lazy">
@@ -353,21 +236,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <section id="skills" class="container px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl">Habilidades Técnicas</h2>
-        <div class="skills-container max-w-6xl mx-auto mt-8 md:mt-12">
-            <div class="skill-category mb-8 md:mb-12">
-                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-code"></i> Frontend</h3>
-                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
-=======
-    <section id="skills" class="container">
-        <h2>Habilidades Técnicas</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Frontend</h3>
-                <div class="skills-grid">
->>>>>>> origin/main
                     <div class="skill-item">
                         <i class="fab fa-js-square"></i>
                         <span>JavaScript (ES6+)</span>
@@ -394,15 +262,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="skill-category mb-8 md:mb-12">
-                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-server"></i> Backend & Tools</h3>
-                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
-=======
-            <div class="skill-category">
-                <h3><i class="fas fa-server"></i> Backend & Tools</h3>
-                <div class="skills-grid">
->>>>>>> origin/main
                     <div class="skill-item">
                         <i class="fab fa-node-js"></i>
                         <span>Node.js</span>
@@ -429,15 +288,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="skill-category mb-8 md:mb-12">
-                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-desktop"></i> Sistemas Operativos</h3>
-                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
-=======
-            <div class="skill-category">
-                <h3><i class="fas fa-desktop"></i> Sistemas Operativos</h3>
-                <div class="skills-grid">
->>>>>>> origin/main
                     <div class="skill-item">
                         <i class="fab fa-linux"></i>
                         <span>Linux</span>
@@ -471,15 +321,6 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div class="skill-category mb-8 md:mb-12">
-                <h3 class="text-xl sm:text-2xl md:text-3xl"><i class="fas fa-palette"></i> Design & Soft Skills</h3>
-                <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-6">
-=======
-            <div class="skill-category">
-                <h3><i class="fas fa-palette"></i> Design & Soft Skills</h3>
-                <div class="skills-grid">
->>>>>>> origin/main
                     <div class="skill-item">
                         <i class="fas fa-paint-brush"></i>
                         <span>UI/UX Design</span>
@@ -509,23 +350,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <section id="contact" class="container px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl">Contacto</h2>
-        <div class="contact-content grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-8 md:mt-12">
-            <div class="contact-info text-center lg:text-left">
-                <h3 class="text-2xl sm:text-3xl md:text-4xl mb-4">¡Hablemos de tu próximo proyecto!</h3>
-                <p class="text-base sm:text-lg mb-8">Estoy siempre interesado en nuevos desafíos y oportunidades. Si tienes un proyecto en mente o simplemente quieres charlar sobre tecnología, no dudes en contactarme.</p>
-                <div class="contact-methods space-y-4 mb-8">
-=======
-    <section id="contact" class="container">
-        <h2>Contacto</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>¡Hablemos de tu próximo proyecto!</h3>
-                <p>Estoy siempre interesado en nuevos desafíos y oportunidades. Si tienes un proyecto en mente o simplemente quieres charlar sobre tecnología, no dudes en contactarme.</p>
-                <div class="contact-methods">
->>>>>>> origin/main
                     <div class="contact-method">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -548,11 +372,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="social-links flex justify-center lg:justify-start gap-4">
-=======
-                <div class="social-links">
->>>>>>> origin/main
                     <a href="https://github.com/manuelzacarias201" target="_blank" rel="noopener" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
@@ -567,45 +386,6 @@
                     </a>
                 </div>
             </div>
-<<<<<<< HEAD
-            <form id="contact-form" class="contact-form w-full" action="https://formspree.io/f/mldplqnn" method="POST">
-                <div class="form-group">
-                    <label for="name">Nombre *</label>
-                    <input type="text" id="name" name="name" required class="w-full">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required class="w-full">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Asunto *</label>
-                    <input type="text" id="subject" name="subject" required class="w-full">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje *</label>
-                    <textarea id="message" name="message" rows="5" required class="w-full"></textarea>
-                </div>
-                <button type="submit" class="submit-btn w-full">
-=======
-            <form id="contact-form" class="contact-form" action="https://formspree.io/f/mldplqnn" method="POST">
-                <div class="form-group">
-                    <label for="name">Nombre *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Asunto *</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje *</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">
->>>>>>> origin/main
                     <span class="btn-text">Enviar Mensaje</span>
                     <span class="btn-loading">
                         <i class="fas fa-spinner fa-spin"></i> Enviando...
@@ -616,42 +396,12 @@
     </section>
 
     <footer>
-<<<<<<< HEAD
-        <div class="container px-4 sm:px-6 lg:px-8">
-            <div class="footer-content grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                <div class="footer-info text-center md:text-left">
-                    <h3 class="text-xl sm:text-2xl mb-3">Manuel Zacarias</h3>
-                    <p class="text-sm sm:text-base">Desarrollador Frontend apasionado por crear experiencias digitales excepcionales.</p>
-                </div>
-                <div class="footer-links text-center md:text-left">
-                    <h4 class="text-lg sm:text-xl mb-4">Enlaces Rápidos</h4>
-                    <ul class="space-y-2">
-=======
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Manuel Zacarias</h3>
-                    <p>Desarrollador Frontend apasionado por crear experiencias digitales excepcionales.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
->>>>>>> origin/main
                         <li><a href="#about">Sobre mí</a></li>
                         <li><a href="#projects">Proyectos</a></li>
                         <li><a href="#skills">Habilidades</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>
                 </div>
-<<<<<<< HEAD
-                <div class="footer-social text-center md:text-left">
-                    <h4 class="text-lg sm:text-xl mb-4">Sígueme</h4>
-                    <div class="social-links flex justify-center md:justify-start gap-4">
-=======
-                <div class="footer-social">
-                    <h4>Sígueme</h4>
-                    <div class="social-links">
->>>>>>> origin/main
                         <a href="https://github.com/manuelzacarias201" target="_blank" rel="noopener" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
