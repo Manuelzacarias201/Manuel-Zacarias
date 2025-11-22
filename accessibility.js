@@ -30,42 +30,52 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     }
+    
+    // Exponer función globalmente para onclick
+    window.toggleAccessibilityPanel = function() {
+        togglePanel();
+    };
 
-    // Event listeners - Mejorado para móvil
-    accessibilityButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
+    // Event listeners: centralizar en click + teclado
+    function handleAccessibilityToggle(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+        }
         togglePanel(e);
-    }, true);
+    }
     
-    accessibilityButton.addEventListener('touchstart', function(e) {
-        e.stopPropagation();
-    }, { passive: true });
-    
-    accessibilityButton.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        togglePanel(e);
-    }, { passive: false });
+    // Click estándar
+    accessibilityButton.addEventListener('click', handleAccessibilityToggle);
+    // Teclado: Enter/Espacio
+    accessibilityButton.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            handleAccessibilityToggle(e);
+        }
+    });
     
     if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
+        function handleClosePanel(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             panel.classList.remove('active');
             panel.setAttribute('aria-hidden', 'true');
             panel.setAttribute('aria-modal', 'false');
             document.body.style.overflow = '';
             accessibilityButton.focus();
-        });
+        }
         
-        closeBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            panel.classList.remove('active');
-            panel.setAttribute('aria-hidden', 'true');
-            panel.setAttribute('aria-modal', 'false');
-            document.body.style.overflow = '';
-        }, { passive: false });
+        // Click estándar
+        closeBtn.addEventListener('click', handleClosePanel);
+        // Teclado: Enter/Espacio
+        closeBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                handleClosePanel(e);
+            }
+        });
     }
 
     // Cerrar al hacer clic fuera
@@ -133,28 +143,23 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'reset':
                 fontSize = 100;
                 document.documentElement.style.fontSize = '100%';
-                document.body.className = '';
+                document.body.classList.remove('high-contrast', 'dyslexic-font', 'stop-animations');
                 options.forEach(opt => opt.classList.remove('active'));
-                localStorage.clear();
+                // Limpiar solo llaves de accesibilidad
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith('accessibility-')) localStorage.removeItem(key);
+                });
                 break;
         }
     }
 
-    // Funcionalidades de accesibilidad - Mejorado para móvil
+    // Funcionalidades de accesibilidad - Click estándar
     options.forEach(option => {
-        // Click event
         option.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             executeAction(option);
         });
-        
-        // Touch event para móvil
-        option.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            executeAction(option);
-        }, { passive: false });
     });
 
     // Cargar preferencias guardadas

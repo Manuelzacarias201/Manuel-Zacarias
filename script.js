@@ -1,30 +1,30 @@
 // Smooth scrolling for navigation links - Mejorado para móvil
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        // Click event
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+    // Deshabilitado: permitir comportamiento nativo de los anchors
+    // No interceptamos clicks/touch; el navegador manejará el scroll.
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Ignorar enlaces dentro del menú; esos tienen manejo específico
+    if (anchor.closest('.nav-menu')) return;
+
+    function handleAnchor(e) {
+        const href = anchor.getAttribute('href');
+        const target = href && href !== '#' ? document.querySelector(href) : null;
+        // Si no hay destino válido, no bloquear el comportamiento por defecto
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
-        
-        // Touch event para móvil
-        anchor.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }, { passive: false });
-    });
+    }
+
+    // Click event
+    anchor.addEventListener('click', handleAnchor, { passive: false });
+    
+    // Touch event para móvil
+    anchor.addEventListener('touchend', handleAnchor, { passive: false });
 });
 
 // Contact form functionality - Enhanced for mobile
@@ -220,35 +220,36 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Mobile menu toggle - Enhanced for mobile
-function toggleMobileMenu(e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
+// Exponer función globalmente para onclick
+window.toggleMobileMenu = function() {
     const nav = document.querySelector('.nav-menu');
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const overlay = document.querySelector('.menu-overlay');
     
     if (!nav || !menuBtn) return;
     
-    const isActive = nav.classList.contains('active');
+    nav.classList.toggle('active');
+    menuBtn.classList.toggle('active');
     
-    if (isActive) {
-        nav.classList.remove('active');
-        menuBtn.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-    } else {
-        nav.classList.add('active');
-        menuBtn.classList.add('active');
-        if (overlay) overlay.classList.add('active');
+    if (overlay) {
+        overlay.classList.toggle('active');
+    }
+    
+    // Prevent body scroll when menu is open
+    if (nav.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
+    } else {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
     }
+};
+
+// También mantener la función local
+function toggleMobileMenu() {
+    return window.toggleMobileMenu();
 }
 
 // Close mobile menu when clicking on a link
@@ -278,87 +279,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     const nav = document.querySelector('.nav-menu');
     
-    // Add click event to mobile menu button
+    // Add event to mobile menu button - simplificado: solo click
     if (mobileMenuBtn) {
-        // Click event
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            toggleMobileMenu(e);
-        }, true);
-        
-        // Touch events para móvil - más confiable
-        mobileMenuBtn.addEventListener('touchstart', function(e) {
-            e.stopPropagation();
-        }, { passive: true });
-        
-        mobileMenuBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            toggleMobileMenu(e);
-        }, { passive: false });
+        function handleMenuToggle(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            toggleMobileMenu();
+        }
+        mobileMenuBtn.addEventListener('click', handleMenuToggle);
     }
     
-    // Add click event to menu close button
+    // Add event to menu close button - simplificado: solo click
     if (menuCloseBtn) {
-        menuCloseBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
+        function handleCloseMenu(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             closeMobileMenu();
-        }, true);
-        
-        // Touch events para móvil
-        menuCloseBtn.addEventListener('touchstart', function(e) {
-            e.stopPropagation();
-        }, { passive: true });
-        
-        menuCloseBtn.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            closeMobileMenu();
-        }, { passive: false });
+        }
+        menuCloseBtn.addEventListener('click', handleCloseMenu);
     }
     
     // Close menu when clicking on nav links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const target = document.querySelector(this.getAttribute('href'));
+        link.addEventListener('click', function() {
+            // No prevenir comportamiento: permitir scroll/navegación nativa
             closeMobileMenu();
-            
-            // Smooth scroll to target
-            if (target) {
-                setTimeout(() => {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 300);
-            }
         });
-        
-        // Touch events para móvil
-        link.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const target = document.querySelector(this.getAttribute('href'));
-            closeMobileMenu();
-            
-            // Smooth scroll to target
-            if (target) {
-                setTimeout(() => {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 300);
-            }
-        }, { passive: false });
     });
     
     // Close menu when clicking on overlay
@@ -369,8 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             closeMobileMenu();
         });
-        
-        // Touch event para móvil
+        // Touch event para móvil (solo cerrar)
         overlay.addEventListener('touchend', function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -378,13 +327,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: false });
     }
     
-    // Close menu when clicking outside (pero no en botones críticos)
+    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (nav && nav.classList.contains('active') && 
             !nav.contains(e.target) && 
-            !mobileMenuBtn.contains(e.target) &&
-            !e.target.closest('.accessibility-button') &&
-            !e.target.closest('.accessibility-panel')) {
+            !mobileMenuBtn.contains(e.target)) {
             closeMobileMenu();
         }
     });
@@ -445,20 +392,20 @@ document.addEventListener('keydown', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Add touch feedback to interactive elements (excluyendo botones críticos)
-    const interactiveElements = document.querySelectorAll('.button:not(.mobile-menu-btn):not(.accessibility-button):not(.menu-close-btn), .project-card, .skill-item, .contact-method, .social-links a');
+    // Add touch feedback to interactive elements
+    const interactiveElements = document.querySelectorAll('.button, .project-card, .skill-item, .contact-method, .social-links a');
     
     interactiveElements.forEach(element => {
         element.addEventListener('touchstart', function() {
             this.style.transform = 'scale(0.95)';
-        }, { passive: true });
+        });
         
         element.addEventListener('touchend', function() {
             this.style.transform = '';
-        }, { passive: true });
+        });
     });
     
-    // Improve touch scrolling (pero no interferir con botones críticos)
+    // Improve touch scrolling - pero NO interferir con botones críticos
     let touchStartY = 0;
     let touchEndY = 0;
     
@@ -498,9 +445,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Mejorar interacción táctil para todos los botones y enlaces
-    // Excluir botones críticos que ya tienen sus propios handlers
-    const allButtons = document.querySelectorAll('button:not(.mobile-menu-btn):not(.menu-close-btn):not(.accessibility-button):not(.accessibility-close):not(.accessibility-option), .button:not(.mobile-menu-btn):not(.menu-close-btn):not(.accessibility-button), .project-link, .social-links a');
+    // Mejorar interacción táctil para todos los botones y enlaces - EXCLUYENDO botones críticos
+    const allButtons = document.querySelectorAll('button:not(.mobile-menu-btn):not(.menu-close-btn):not(.accessibility-button):not(.accessibility-close), .button:not(.mobile-menu-btn):not(.menu-close-btn):not(.accessibility-button), .project-link, .social-links a');
     allButtons.forEach(button => {
         // Asegurar que los eventos touch funcionen correctamente
         button.addEventListener('touchstart', function(e) {
